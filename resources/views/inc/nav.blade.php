@@ -1,6 +1,6 @@
 <!-- Header -->
 <header id="header">
-	<h1><a href="{{ route('home') }}">Transit</a></h1>
+	<h1><a href="{{ route('home') }}">{{ config('app.name') }}</a></h1>
 	<nav id="nav">
 		<ul>
             <!-- Authentication Links -->
