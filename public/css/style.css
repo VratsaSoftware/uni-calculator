@@ -402,6 +402,10 @@
 		opacity: 1.0;
 	}
 
+	.rem_password {
+		padding: 10px 0;
+	}
+
 /* Box */
 
 	.box {
