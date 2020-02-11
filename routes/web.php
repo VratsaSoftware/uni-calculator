@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'HomeController@index');
 
-Route::get('/', 'HomeController@index')->name('home');
+Auth::routes();
 
-Route::resource('cities', 'CityController');
+Route::get('/home', 'HomeController@index')->name('home');

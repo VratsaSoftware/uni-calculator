@@ -36,7 +36,7 @@
 	}
 
 	a {
-		color: #383b43;
+		color: #fff;
 		text-decoration: none;
 	}
 
@@ -212,7 +212,7 @@
 	}
 
 	label {
-		color: #474747;
+		/*color: #474747;*/
 		display: block;
 		font-size: 0.9em;
 		font-weight: 700;
@@ -319,7 +319,7 @@
 		input[type="checkbox"] + label,
 		input[type="radio"] + label {
 			text-decoration: none;
-			color: #444;
+			/*color: #444;*/
 			cursor: pointer;
 			display: inline-block;
 			font-size: 1em;
@@ -944,7 +944,7 @@
 		color: #ffffff;
 		cursor: default;
 		font-size: 1.1em;
-		height: 6em;
+		/*height: 6em;*/
 		line-height: 6em;
 		width: 100%;
 		z-index: 10000;
@@ -1029,13 +1029,15 @@
 			}
 
 /* Banner */
-
+	.center {
+		text-align: center;
+	}
 	#banner {
 		background-image: url(../images/dark_tint.png), url(../images/bokeh_car_lights_bg.jpg);
 		background-position: center center;
 		background-size: cover;
 		color: #ffffff;
-		padding: 14em 0em 14em;
+		padding: 7em 0em 7em;
 		text-align: center;
 	}
 
@@ -1217,3 +1219,11 @@
 		.grid-demo .row.flush > div:last-child span {
 			border-radius: 0 4px 4px 0;
 		}
+
+
+.form-login {
+	background: rgba(144, 144, 144, 0.075);
+	border-radius: 4px;
+	display: inline-block;
+	padding: 50px;
+}

@@ -1,9 +1,30 @@
+<!-- Header -->
 <header id="header">
 	<h1><a href="{{ route('home') }}">Transit</a></h1>
 	<nav id="nav">
 		<ul>
-			<li><a href="{{ route('home') }}">Home</a></li>
-			<li><a href="#" class="button special">Sign Up</a></li>
-		</ul>
+            <!-- Authentication Links -->
+            @guest
+            <li >
+                <a href="{{ route('login') }}">{{ __('Login') }}</a>
+            </li>
+            @if (Route::has('register'))
+            <li>
+                <a href="{{ route('register') }}">{{ __('Register') }}</a>
+            </li>
+            @endif
+            @else
+            <li>
+                <a id="navbarDropdown" href="#" role="button">
+                	{{ Auth::user()->name }}
+                </a>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                </form>
+            </li>
+            @endguest
+        </ul>
 	</nav>
 </header>

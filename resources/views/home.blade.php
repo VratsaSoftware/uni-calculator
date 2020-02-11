@@ -1,14 +1,24 @@
 @extends('layouts.app')
+
 @section('title', 'Home')
 
 @section('content')
-    <section id="banner">
-        <h2>Hi. This is Transit.</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <ul class="actions">
-            <li>
-                <a href="#" class="button big">Lorem ipsum dolor</a>
-            </li>
-        </ul>
-    </section>
+<section id="banner">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    You are logged in!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
 @endsection
