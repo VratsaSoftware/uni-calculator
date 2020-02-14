@@ -35,7 +35,9 @@
 			<a href="{{route('universities.edit', $university->id)}}">Update</a>
 		</td>
 		<td>
-			Delete
+			{!!Form::open(['route'=> ['universities.destroy', $university->id], 'method'=>'delete']) !!}
+				{!! Form::submit('Изтрий') !!}
+			{!! Form::close()!!}
 		</td>
 @endforeach
 </table>

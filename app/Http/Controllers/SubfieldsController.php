@@ -106,6 +106,6 @@ class SubfieldsController extends Controller
     {
         $subfield = Subfield::find($id);
         $subfield->delete();
-        return redirect()->back()->with('message', 'Това направление град беше изтрито успешно от базата данни!');
+        return redirect()->back()->with('message', 'Това направление беше изтрито успешно от базата данни!');
     }
 }

@@ -53,11 +53,8 @@ class UniversitiesController extends Controller
         $profile->rating = null;
         $profile->save();
 
-        return redirect()->back()->with('message', dd($profile));
+        //$profile_id = $profile->id;
 
-
-
-    
         $university = new University;
         $university->name = $request->name;
         $university->city_id = $request->city_id;
@@ -93,7 +90,9 @@ class UniversitiesController extends Controller
      */
     public function edit($id)
     {
-        //
+       $university = University::find($id);
+        $cities = City::all();
+        return view('universities.edit',  compact('university'), compact('cities'));
     }
 
     /**
@@ -105,7 +104,15 @@ class UniversitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $university = University::find($id);
+        $cities = City::all();
+
+        $university->name = $request->name;
+        $university->city_id=$request->city_id;
+        
+        $university->save();
+
+        return redirect()->back()->with('message', 'Записът беше променен успешно!' );
     }
 
     /**
@@ -116,6 +123,8 @@ class UniversitiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $university = University::find($id);
+        $university->delete();
+        return redirect()->back()->with('message', 'Този университет беше изтрито успешно от базата данни!');
     }
 }

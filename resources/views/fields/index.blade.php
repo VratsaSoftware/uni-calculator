@@ -1,4 +1,4 @@
-<h2>Градове</h2>
+<h2>Направления</h2>
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}
