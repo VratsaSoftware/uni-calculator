@@ -18,6 +18,7 @@ class CreateSubfieldsTable extends Migration
             $table->string('name');
             $table->unsignedBigInteger('field_id');
             $table->foreign('field_id')->references('id')->on('fields');
+            
             $table->timestamps();
         });
     }
