@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'HomeController@index');
 
+<<<<<<< HEAD
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,3 +24,8 @@ Route::resource('fields', 'FieldsController');
 Route::resource('subfields', 'SubfieldsController');
 
 
+=======
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+>>>>>>> origin/Auth
