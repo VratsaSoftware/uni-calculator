@@ -1,0 +1,27 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Major extends Model
+{
+    protected $fillable= [ 
+    	'name', 
+    	'subfield_id', 
+    	'form', 
+    	'program_id',
+    	'max_score',
+    	'university_id',
+
+    ];
+
+    public function subfield(){
+        return $this->belongsTo('App\Subield', 'subfield_id');
+    public function program(){
+        return $this->belongsTo('App\Program', 'program_id');    
+    public function university(){
+        return $this->belongsTo('App\University', 'university_id');
+}
+
+}
