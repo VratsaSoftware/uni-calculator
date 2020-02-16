@@ -63,9 +63,6 @@ class UniversitiesController extends Controller
 
         $university->save();
 
-       //$university->save();
-
-
         return redirect()->back()->with('message', 'Добавен е нов град в базата данни!');
         
         

@@ -20,5 +20,7 @@ Route::resource('cities', 'CitiesController');
 Route::resource('universities', 'UniversitiesController');
 Route::resource('fields', 'FieldsController');
 Route::resource('subfields', 'SubfieldsController');
+Route::resource('majors', 'MajorsController');
+
 
 
