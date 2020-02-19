@@ -18,10 +18,11 @@ class Major extends Model
 
     public function subfield(){
         return $this->belongsTo('App\Subield', 'subfield_id');
+    }
     public function program(){
-        return $this->belongsTo('App\Program', 'program_id');    
+        return $this->belongsTo('App\Program', 'program_id');
+    }   
     public function university(){
         return $this->belongsTo('App\University', 'university_id');
-}
-
+    }
 }
