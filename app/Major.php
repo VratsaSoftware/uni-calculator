@@ -13,7 +13,6 @@ class Major extends Model
     	'program_id',
     	'max_score',
     	'university_id',
-
     ];
 
     public function subfield(){

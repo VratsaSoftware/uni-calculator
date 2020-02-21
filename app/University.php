@@ -10,11 +10,12 @@ class University extends Model
     	'name', 
     	'city_id', 
     	'profile_id', 
-
     ];
-    public function cities(){
+
+    public function city(){
         return $this->belongsTo('App\City', 'city_id');
     }
+    
     public function profile(){
         return $this->hasOne('App\Profile');
     }

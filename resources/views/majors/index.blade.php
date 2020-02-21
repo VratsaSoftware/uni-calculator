@@ -9,7 +9,6 @@
 @endforeach
 
 <table border="1">
-
 	<tr>
 		<td>
 			Наимнование на специалността
@@ -28,6 +27,12 @@
 		</td>
 		<td>
 			Университет
+		</td>
+		<td>
+			-
+		</td>
+		<td>
+			-
 		</td>
 	</tr>
 	@foreach($majors as $major)
@@ -58,7 +63,8 @@
 				{!! Form::submit('Изтрий') !!}
 			{!! Form::close()!!}
 		</td>
-@endforeach
+	</tr>
+		@endforeach
 </table>
 
 <p>

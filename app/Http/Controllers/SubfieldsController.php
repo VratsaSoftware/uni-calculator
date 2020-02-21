@@ -16,7 +16,8 @@ class SubfieldsController extends Controller
      */
     public function index()
     {
-        $subfields = Subfield::with('fields')->get();
+        $subfields = Subfield::with('field')->get();
+
         return view('subfields.index', compact('subfields'));
     }
 
@@ -27,11 +28,10 @@ class SubfieldsController extends Controller
      */
     public function create()
     {
-        $subfields= Subfield::with('fields')->get();
+        $subfields= Subfield::with('field')->get();
         $fields = Field::all();
+
         return view('subfields.create', compact('subfields'), compact('fields'));
-
-
     }
 
     /**
@@ -42,14 +42,12 @@ class SubfieldsController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
         $subfield = new Subfield;
         $subfield->name = $request->name;
         $subfield->field_id= $request->field_id;
         $subfield->save();
 
         return redirect()->back()->with('message', 'Добавено е ново поднаправление в базата данни!');
-
     }
 
     /**
@@ -73,6 +71,7 @@ class SubfieldsController extends Controller
     {
         $subfield = Subfield::find($id);
         $fields = Field::all();
+
         return view('subfields.edit', compact('subfield'), compact('fields'));
     }
 
@@ -87,10 +86,8 @@ class SubfieldsController extends Controller
     {
         $subfield = Subfield::find($id);
         $fields = Field::all();
-
         $subfield->name = $request->name;
         $subfield->field_id=$request->field_id;
-        
         $subfield->save();
 
         return redirect()->back()->with('message', 'Записът беше променен успешно!' );
@@ -106,6 +103,7 @@ class SubfieldsController extends Controller
     {
         $subfield = Subfield::find($id);
         $subfield->delete();
+        
         return redirect()->back()->with('message', 'Това направление беше изтрито успешно от базата данни!');
     }
 }

@@ -9,13 +9,18 @@
 @endforeach
 
 <table border="1">
-
 	<tr>
 		<td>
 			№
 		</td>
 		<td>
 			Град
+		</td>
+		<td>
+			-
+		</td>
+		<td>
+			-
 		</td>
 	</tr>
 	@foreach($cities as $city)
@@ -34,13 +39,10 @@
 				{!! Form::submit('Изтрий') !!}
 			{!! Form::close()!!}
 		</td>
-@endforeach
+	</tr>
+	@endforeach
 </table>
 
 <p>
 	<a href="{{route('cities.create')}}">Add city</a>
 </p>
-
-{{-- <p>
-	<a href="{{route('/')}}">Home</a>
-</p> --}}

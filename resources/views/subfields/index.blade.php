@@ -9,13 +9,18 @@
 @endforeach
 
 <table border="1">
-
 	<tr>
 		<td>
 			<b>Поднаправление</b>
 		</td>
 		<td>
 			<b>Направление</b>
+		</td>
+		<td>
+			-
+		</td>
+		<td>
+			-
 		</td>
 	</tr>
 	@foreach($subfields as $subfield)
@@ -24,7 +29,7 @@
 			{{$subfield->name}}
 		</td>
 		<td>
-			{{$subfield->fields->name}}
+			{{$subfield->field->name}}
 		</td>
 		<td>
 			<a href="{{route('subfields.edit', $subfield->id)}}">Промени</a>
@@ -34,7 +39,8 @@
 				{!! Form::submit('Изтрий') !!}
 			{!! Form::close()!!}
 		</td>
-@endforeach
+	</tr>
+	@endforeach
 </table>
 
 <p>

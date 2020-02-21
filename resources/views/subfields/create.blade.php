@@ -5,9 +5,9 @@
 	{{ Session::get('message') }}
 @endif
 
-	@foreach($errors->all() as $error)
-		{{ $error }}
-	@endforeach
+@foreach($errors->all() as $error)
+	{{ $error }}
+@endforeach
 
 {!! Form::open (['route'=> 'subfields.store', 'files'=>'true']) !!}
 	<p>Име на поднаправлението:
@@ -21,11 +21,9 @@
 			@endforeach
 		</select>
 	</p>
-
-		{!! Form::submit('Save') !!}
-
+	{!! Form::submit('Save') !!}
 {!! Form::close() !!}
 
-	<p>
-		<a href="{{ route('subfields.index') }}">Назад</a>
-	</p>
+<p>
+	<a href="{{ route('subfields.index') }}">Назад</a>
+</p>

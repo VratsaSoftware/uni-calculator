@@ -9,14 +9,12 @@
 		{{ $error }}
 	@endforeach
 
-{!! Form::open (['route'=> 'cities.store', 'files'=>'true']) !!}
-	<p>Име:
-		{!! Form::text('name') !!}
-	</p>
-		{!! Form::submit('Запиши') !!}
-
-{!! Form::close() !!}
-
+		{!! Form::open (['route'=> 'cities.store', 'files'=>'true']) !!}
+			<p>Име:
+				{!! Form::text('name') !!}
+			</p>
+				{!! Form::submit('Запиши') !!}
+		{!! Form::close() !!}
 	<p>
 		<a href="{{ route('cities.index') }}">Назад</a>
 	</p>

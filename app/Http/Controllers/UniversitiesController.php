@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\University;
 use App\City;
 use App\Profile;
-
-
-
+use App\Http\Requests\CreateUniversityRequest;
 use Illuminate\Http\Request;
 
 class UniversitiesController extends Controller
@@ -20,10 +18,9 @@ class UniversitiesController extends Controller
     public function index()
     {
        
-       $universities = University::with('cities')->get();
+        $universities = University::with('city')->get();
+
         return view('universities.index', compact('universities'));
-
-
     }
 
     /**
@@ -33,8 +30,9 @@ class UniversitiesController extends Controller
      */
     public function create()
     {
-        $universities= University::with('cities')->get();
+        $universities= University::with('city')->get();
         $cities = City::all();
+
         return view('universities.create', compact('universities'), compact('cities'));
     }
 
@@ -44,28 +42,18 @@ class UniversitiesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateUniversityRequest $request)
     {
         $profile = new Profile;
-        $profile->address = null; 
-        $profile->info = null;
-        $profile->img_path = null;
-        $profile->rating = null;
         $profile->save();
-
-        //$profile_id = $profile->id;
 
         $university = new University;
         $university->name = $request->name;
         $university->city_id = $request->city_id;
         $university->profile_id = $profile->id;
-
-
         $university->save();
 
-        return redirect()->back()->with('message', 'Добавен е нов град в базата данни!');
-        
-        
+        return redirect()->back()->with('message', 'Добавен е нов университет в базата данни!');
     }
 
     /**
@@ -88,8 +76,9 @@ class UniversitiesController extends Controller
     public function edit($id)
     {
        $university = University::find($id);
-        $cities = City::all();
-        return view('universities.edit',  compact('university'), compact('cities'));
+       $cities = City::all();
+       
+       return view('universities.edit',  compact('university'), compact('cities'));
     }
 
     /**
@@ -103,10 +92,8 @@ class UniversitiesController extends Controller
     {
         $university = University::find($id);
         $cities = City::all();
-
         $university->name = $request->name;
         $university->city_id=$request->city_id;
-        
         $university->save();
 
         return redirect()->back()->with('message', 'Записът беше променен успешно!' );
@@ -122,6 +109,7 @@ class UniversitiesController extends Controller
     {
         $university = University::find($id);
         $university->delete();
+        
         return redirect()->back()->with('message', 'Този университет беше изтрито успешно от базата данни!');
     }
 }

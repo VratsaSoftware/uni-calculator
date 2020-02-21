@@ -9,13 +9,18 @@
 @endforeach
 
 <table border="1">
-
 	<tr>
 		<td>
 			№
 		</td>
 		<td>
 			Направление
+		</td>
+		<td>
+			-
+		</td>
+		<td>
+			-
 		</td>
 	</tr>
 	@foreach($fields as $field)
@@ -34,7 +39,8 @@
 				{!! Form::submit('Изтрий') !!}
 			{!! Form::close()!!}
 		</td>
-@endforeach
+	</tr>
+	@endforeach	
 </table>
 
 <p>

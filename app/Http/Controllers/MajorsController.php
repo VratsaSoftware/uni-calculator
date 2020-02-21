@@ -7,6 +7,7 @@ use App\Major;
 use App\Subfield;
 use App\Program;
 use App\University;
+use App\Http\Requests\CreateMajorsRequest;
 
 
 
@@ -21,6 +22,7 @@ class MajorsController extends Controller
     public function index()
     {
         $majors = Major::with('subfield', 'program', 'university' )->get();
+        
         return view('majors.index', compact('majors'));
 
     }
@@ -46,9 +48,8 @@ class MajorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateMajorsRequest $request)
     {
-        //dd($request);
         $major = new Major;
         $major->name = $request->name;
         $major->subfield_id = $request->subfield_id;
@@ -56,7 +57,6 @@ class MajorsController extends Controller
         $major->program_id = $request->program_id;
         $major->max_score = $request->max_score;
         $major->university_id = $request->university_id;
-
         $major->save();
 
         return redirect()->back()->with('message', 'Добавена е нова специалност в базата данни!');
@@ -85,6 +85,7 @@ class MajorsController extends Controller
         $subfields = Subfield::all();
         $programs = Program::all();
         $universities = University::all();
+
         return view('majors.edit',  compact('major'), compact('subfields', 'programs','universities'));
     }
 
@@ -104,7 +105,6 @@ class MajorsController extends Controller
         $major->program_id = $request->program_id;
         $major->max_score = $request->max_score;
         $major->university_id = $request->university_id;
-
         $major->save();
 
         return redirect()->back()->with('message', 'Записът беше променен успешно!' );
@@ -120,6 +120,7 @@ class MajorsController extends Controller
     {
         $major = Major::find($id);
         $major->delete();
+
         return redirect()->back()->with('message', 'Тази специалност беше изтрита успешно от базата данни!');
     }
 }

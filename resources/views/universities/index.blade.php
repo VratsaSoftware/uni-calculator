@@ -1,8 +1,3 @@
-{{-- {{dd($universities)}}
- --}}
-
-
-
 <h2>Университети</h2>
 
 @if(Session::has('message'))
@@ -14,13 +9,18 @@
 @endforeach
 
 <table border="1">
-
 	<tr>
 		<td>
 			Име на университет
 		</td>
 		<td>
 			Град
+		</td>
+		<td>
+			-
+		</td>
+		<td>
+			-
 		</td>
 	</tr>
 	@foreach($universities as $university)
@@ -29,7 +29,7 @@
 			{{$university->name}}
 		</td>
 		<td>
-			{{$university->cities->name}}
+			{{$university->city->name}}
 		</td>
 		<td>
 			<a href="{{route('universities.edit', $university->id)}}">Update</a>
@@ -39,7 +39,8 @@
 				{!! Form::submit('Изтрий') !!}
 			{!! Form::close()!!}
 		</td>
-@endforeach
+	</tr>
+		@endforeach
 </table>
 
 <p>
