@@ -5,15 +5,16 @@
 	{{ Session::get('message') }}
 @endif
 
-	@foreach($errors->all() as $error)
-		{{ $error }}
-	@endforeach
+@foreach($errors->all() as $error)
+	{{ $error }}
+@endforeach
 
-{!! Form::model ( $major, ['route'=> ['majors.update', $major->id], 'files'=>'true']) !!}
-	{{ method_field('PATCH') }}
+<form action="{{ route('majors.update', $major->id) }}" method="POST">
+	{{ csrf_field() }}
+	{{ method_field('PUT') }}
 	<p>
 		Име на специалността:
-		{!! Form::text('name') !!}
+		<input type="text" name="name" value="{{$major->name}}">
 	</p>
 	<p>
 		Поднаправление:
@@ -26,7 +27,7 @@
 	</p>
 	<p>
 		Форма на обучение:
-		{!! Form::text('form') !!}
+		<input type="text" name="form" value="Форма на обучение...">
 	</p>
 	<p>
 		Квалификационна степен:
@@ -39,7 +40,7 @@
 	</p>
 	<p>
 		Максимален бал:
-		{!! Form::number('max_score') !!}
+		<input type="number" name="max_score">
 	</p>
 	<p>
 		Университет:
@@ -50,9 +51,9 @@
 			@endforeach
 		</select>
 	</p>
-		{!! Form::submit('Update') !!}
-{!! Form::close() !!}
+	<input type="submit" name="submit" value="Промени">
+</form>
 
-	<p>
-		<a href="{{ route('majors.index') }}">Back</a>
-	</p>
+<p>
+	<a href="{{ route('majors.index') }}">Назад</a>
+</p>

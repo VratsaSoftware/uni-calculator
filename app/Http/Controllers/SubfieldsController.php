@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Field;
 use App\Subfield;
+use App\Http\Requests\CreateSubfieldRequest;
 
 
 class SubfieldsController extends Controller
@@ -40,7 +41,7 @@ class SubfieldsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateSubfieldRequest $request)
     {
         $subfield = new Subfield;
         $subfield->name = $request->name;

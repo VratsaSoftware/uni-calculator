@@ -1,4 +1,4 @@
-<h2>Промени град</h2>
+<h2>Промени направление</h2>
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}
@@ -8,12 +8,13 @@
 	{{ $error }}
 @endforeach
 
-{!! Form::model ( $field, ['route'=> ['fields.update', $field->id], 'files'=>'true']) !!}
-	{{ method_field('PATCH') }}
+<form action="{{ route('fields.update', $field->id) }}" method="POST">
+	{{ csrf_field() }}
+	{{ method_field('PUT') }}
 	<p>Name:
-		{!! Form::text('name', $field->name) !!}
+		<input type="text" name="name" value="{{ $field->name }}">
 	</p>
-	{!! Form::submit('Промени') !!}
-{!! Form::close() !!}
+	<input type="submit" name="submit" value="Промени">
+</form>
 
 <a href="{{ route('fields.index') }}">Назад</a>

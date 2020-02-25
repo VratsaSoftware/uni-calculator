@@ -9,9 +9,10 @@
 	{{ $error }}
 @endforeach
 
-{!! Form::open (['route'=> 'subfields.store', 'files'=>'true']) !!}
+<form action="{{ route('subfields.store') }}" method="POST">
+	{{ csrf_field() }}
 	<p>Име на поднаправлението:
-		{!! Form::text('name') !!}
+		<input type="text" name="name" value="{{ old('name') }}">
 	</p>
 	<p>
 		Направление:
@@ -21,9 +22,8 @@
 			@endforeach
 		</select>
 	</p>
-	{!! Form::submit('Save') !!}
-{!! Form::close() !!}
-
+	<input type="submit" name="submit" value="Запиши">
+</form>
 <p>
 	<a href="{{ route('subfields.index') }}">Назад</a>
 </p>

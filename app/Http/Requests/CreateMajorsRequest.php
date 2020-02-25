@@ -33,7 +33,7 @@ class CreateMajorsRequest extends FormRequest
     public function messages(){
         return [
             'name.required' => 'Името на специалността е задължително!',
-            'name.nim' => 'Името да не е по-малко от 2 знака',
+            'name.min' => 'Името да не е по-малко от 2 знака',
             'form.required' => 'Формата на специалността се попълва задължително!',
             'form.min' => 'Името да не е по-малко от 2 знака',
             'max_score.required' => 'Максималният бал e задължителен!'

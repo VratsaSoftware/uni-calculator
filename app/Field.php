@@ -9,7 +9,6 @@ class Field extends Model
     protected $fillable= ['name'];
 
     public function subfields(){
-
     	return $this->hasMany('App\Subfield');
     }
 }

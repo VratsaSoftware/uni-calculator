@@ -4,26 +4,26 @@
 	{{ Session::get('message') }}
 @endif
 
-	@foreach($errors->all() as $error)
-		{{ $error }}
-	@endforeach
+@foreach($errors->all() as $error)
+	{{ $error }}
+@endforeach
 	
-{!! Form::model ( $university, ['route'=> ['universities.update', $university->id], 'files'=>'true']) !!}
-	{{ method_field('PATCH') }}
+<form action="{{ route('universities.update', $university->id) }}" method="POST">
+	{{ csrf_field() }}
+	{{ method_field('PUT') }}
 	<p>Име на университет:
-		{!! Form::text('name') !!}
+		<input type="text" name="name" value="{{ $university->name }}">
 	</p>
 	<p>
 		Град:
-		<select name="city_id" >
+		<select name="city_id">
+			<option value="{{ $university->city->id }}" selected>{{ $university->city->name }}</option>
 			@foreach($cities as $city)
-			<option value="{{$city->id}}">{{$city->name}} </option>
+			<option value="{{ $city->id }}">{{ $city->name }} </option>
 			@endforeach
 		</select>
 	</p>
+	<input type="submit" name="submit" value="Промени">
+</form>
 
-	{!! Form::submit('Update') !!}
-
-{!! Form::close() !!}
-
-<a href="{{ route('universities.index') }}">Back</a>
+<a href="{{ route('universities.index') }}">Назад</a>

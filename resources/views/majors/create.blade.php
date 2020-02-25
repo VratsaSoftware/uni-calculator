@@ -5,14 +5,15 @@
 	{{ Session::get('message') }}
 @endif
 
-	@foreach($errors->all() as $error)
-		{{ $error }}
-	@endforeach
+@foreach($errors->all() as $error)
+	{{ $error }}
+@endforeach
 
-{!! Form::open (['route'=> 'majors.store', 'files'=>'true']) !!}
+<form action="{{ route('majors.store') }}" method="POST">
+	{{ csrf_field() }}
 	<p>
 		Име на специалността:
-		{!! Form::text('name') !!}
+		<input type="text" name="name" value="{{ old('name') }}">
 	</p>
 	<p>
 		Поднаправление:
@@ -24,7 +25,7 @@
 	</p>
 	<p>
 		Форма на обучение:
-		{!! Form::text('form') !!}
+		<input type="text" name="form" value="{{ old('form') }}">
 	</p>
 	<p>
 		Квалификационна степен:
@@ -36,7 +37,7 @@
 	</p>
 	<p>
 		Максимален бал:
-		{!! Form::number('max_score') !!}
+		<input type="number" name="max_score" value="{{ old('max_score') }}">
 	</p>
 	<p>
 		Университет:
@@ -46,9 +47,9 @@
 			@endforeach
 		</select>
 	</p>
-		{!! Form::submit('Save') !!}
-{!! Form::close() !!}
+	<input type="submit" name="submit" value="Запиши">
+</form>	
 
-	<p>
-		<a href="{{ route('majors.index') }}">Back</a>
-	</p>
+<p>
+	<a href="{{ route('majors.index') }}">Назад</a>
+</p>

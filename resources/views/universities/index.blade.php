@@ -26,23 +26,25 @@
 	@foreach($universities as $university)
 	<tr>
 		<td>
-			{{$university->name}}
+			{{ $university->name }}
 		</td>
 		<td>
-			{{$university->city->name}}
+			{{ $university->city->name }}
 		</td>
 		<td>
-			<a href="{{route('universities.edit', $university->id)}}">Update</a>
+			<a href="{{ route('universities.edit', $university->id )}}">Промени</a>
 		</td>
 		<td>
-			{!!Form::open(['route'=> ['universities.destroy', $university->id], 'method'=>'delete']) !!}
-				{!! Form::submit('Изтрий') !!}
-			{!! Form::close()!!}
+			<form action="{{ route('universities.destroy', $university->id )}}"  method="POST">
+				{{ csrf_field() }}
+				{{ method_field('DELETE') }}
+				<input type="submit" name="submit" value="Изтрий">
+			</form>
 		</td>
 	</tr>
 		@endforeach
 </table>
 
 <p>
-	<a href="{{route('universities.create')}}">Add university</a>
+	<a href="{{route('universities.create')}}">Добави университет</a>
 </p>

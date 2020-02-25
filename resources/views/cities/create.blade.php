@@ -5,16 +5,18 @@
 	{{ Session::get('message') }}
 @endif
 
-	@foreach($errors->all() as $error)
-		{{ $error }}
-	@endforeach
+@foreach($errors->all() as $error)
+	{{ $error }}
+@endforeach
 
-		{!! Form::open (['route'=> 'cities.store', 'files'=>'true']) !!}
-			<p>Име:
-				{!! Form::text('name') !!}
-			</p>
-				{!! Form::submit('Запиши') !!}
-		{!! Form::close() !!}
-	<p>
-		<a href="{{ route('cities.index') }}">Назад</a>
+<form action="{{route('cities.store')}}" method="POST">
+	{{ csrf_field() }}
+	<p>Име:
+		<input type="text" name="name" value="{{ old('name') }}">
 	</p>
+	<input type="submit" name="submit" value="Запиши">
+</form>
+
+<p>
+	<a href="{{ route('cities.index') }}">Назад</a>
+</p>

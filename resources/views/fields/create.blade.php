@@ -8,14 +8,14 @@
 	{{ $error }}
 @endforeach
 
-	{!! Form::open (['route'=> 'fields.store', 'files'=>'true']) !!}
-		<p>Име:
-			{!! Form::text('name') !!}
-		</p>
-		<p>
-			{!! Form::submit('Запиши') !!}
-		</p>
-	{!! Form::close() !!}
+<form action="{{ route('fields.store') }}" method="POST">
+	{{ csrf_field() }}
+	<p>Име:
+		<input type="text" name="name" value="{{ old('name') }}">
+	</p>
+	<input type="submit" name="submit" value="Запиши">
+</form>	
+
 <p>
 	<a href="{{ route('fields.index') }}">Назад</a>
 </p>

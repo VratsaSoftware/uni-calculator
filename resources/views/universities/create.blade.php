@@ -1,6 +1,5 @@
 <h2>Добавяне на нов университет в базата данни</h2>
 
-
 @if(Session::has('message'))
 	{{ Session::get('message') }}
 @endif
@@ -9,21 +8,22 @@
 	{{ $error }}
 @endforeach
 
-{!! Form::open (['route'=> 'universities.store', 'files'=>'true']) !!}
+<form action="{{route('universities.store')}}" method="POST">
+	{{ csrf_field() }}
 	<p>Име на университета:
-		{!! Form::text('name') !!}
+		<input type="text" name="name" value="{{ old('name') }}">
 	</p>
 	<p>
 		Град:
 		<select name="city_id" >
 			@foreach($cities as $city)
-			<option value={{$city->id}}>{{$city->name}}</option>
+			<option value={{ $city->id }}>{{ $city->name }}</option>
 			@endforeach
 		</select>
 	</p>
-	{!! Form::submit('Save') !!}
-{!! Form::close() !!}
+	<input type="submit" name="submit" value="Запиши">
+</form>
 
 <p>
-	<a href="{{ route('universities.index') }}">Back</a>
+	<a href="{{ route('universities.index') }}">Назад</a>
 </p>
