@@ -79,9 +79,7 @@ class FieldsController extends Controller
     public function update(Request $request, $id)
     {
         $field = Field::find($id);
-       
-        $field->name = $request->name;
-        
+        $field->name = $request->name; 
         $field->save();
 
         return redirect()->back()->with('message', $field->name.' беше успешно променен в базата данни!' );

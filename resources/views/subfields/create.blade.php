@@ -5,13 +5,14 @@
 	{{ Session::get('message') }}
 @endif
 
-	@foreach($errors->all() as $error)
-		{{ $error }}
-	@endforeach
+@foreach($errors->all() as $error)
+	{{ $error }}
+@endforeach
 
-{!! Form::open (['route'=> 'subfields.store', 'files'=>'true']) !!}
+<form action="{{ route('subfields.store') }}" method="POST">
+	{{ csrf_field() }}
 	<p>Име на поднаправлението:
-		{!! Form::text('name') !!}
+		<input type="text" name="name" value="{{ old('name') }}">
 	</p>
 	<p>
 		Направление:
@@ -21,11 +22,8 @@
 			@endforeach
 		</select>
 	</p>
-
-		{!! Form::submit('Save') !!}
-
-{!! Form::close() !!}
-
-	<p>
-		<a href="{{ route('subfields.index') }}">Назад</a>
-	</p>
+	<input type="submit" name="submit" value="Запиши">
+</form>
+<p>
+	<a href="{{ route('subfields.index') }}">Назад</a>
+</p>

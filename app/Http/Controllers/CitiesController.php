@@ -16,6 +16,7 @@ class CitiesController extends Controller
     public function index()
     {
         $cities = City::all();
+
         return view('cities.index', compact('cities'));
     }
 
@@ -27,6 +28,7 @@ class CitiesController extends Controller
     public function create()
     {
         $cities = City::all();
+
         return view('cities.create', compact('cities'));
     }
 
@@ -40,6 +42,7 @@ class CitiesController extends Controller
     {
         $city = new City;
         $city->name = $request->name;
+        $validated = $request->validated();
         $city->save();
 
         return redirect()->back()->with('message', 'Добавен е нов град в базата данни!');
@@ -65,6 +68,7 @@ class CitiesController extends Controller
     public function edit($id)
     {
         $city = City::find($id);
+        
         return view('cities.edit', compact('city'));
     }
 
@@ -78,9 +82,7 @@ class CitiesController extends Controller
     public function update(Request $request, $id)
     {
         $city = City::find($id);
-       
         $city->name = $request->name;
-        
         $city->save();
 
         return redirect()->back()->with('message', $city->name.' беше успешно променен в базата данни!' );

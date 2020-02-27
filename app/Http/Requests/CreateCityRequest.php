@@ -25,15 +25,13 @@ class CreateCityRequest extends FormRequest
     {
         return [
             'name' => 'required|min:2',
-            
-                ];
+        ];
     }
 
     public function messages(){
         return [
             'name.required' => 'Името на града е задължително! ',
             'name.min' => 'Името да не е по-малко от 2 знака! ',
-           
         ];
     }
 }

@@ -11,11 +11,9 @@ class Profile extends Model
     	'info', 
     	'img_path', 
     	'rating',
-
     ];
 
     public function university(){
         return $this->belongsTo('App\University');
     }
-     
 }

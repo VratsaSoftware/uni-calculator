@@ -1,8 +1,3 @@
-{{-- {{dd($universities)}}
- --}}
-
-
-
 <h2>Университети</h2>
 
 @if(Session::has('message'))
@@ -14,7 +9,6 @@
 @endforeach
 
 <table border="1">
-
 	<tr>
 		<td>
 			Име на университет
@@ -22,24 +16,35 @@
 		<td>
 			Град
 		</td>
+		<td>
+			-
+		</td>
+		<td>
+			-
+		</td>
 	</tr>
 	@foreach($universities as $university)
 	<tr>
 		<td>
-			{{$university->name}}
+			{{ $university->name }}
 		</td>
 		<td>
-			{{$university->cities->name}}
+			{{ $university->city->name }}
 		</td>
 		<td>
-			<a href="{{route('universities.edit', $university->id)}}">Update</a>
+			<a href="{{ route('universities.edit', $university->id )}}">Промени</a>
 		</td>
 		<td>
-			Delete
+			<form action="{{ route('universities.destroy', $university->id )}}"  method="POST">
+				{{ csrf_field() }}
+				{{ method_field('DELETE') }}
+				<input type="submit" name="submit" value="Изтрий">
+			</form>
 		</td>
-@endforeach
+	</tr>
+		@endforeach
 </table>
 
 <p>
-	<a href="{{route('universities.create')}}">Add university</a>
+	<a href="{{route('universities.create')}}">Добави университет</a>
 </p>

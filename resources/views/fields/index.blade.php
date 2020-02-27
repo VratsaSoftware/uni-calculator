@@ -1,4 +1,4 @@
-<h2>Градове</h2>
+<h2>Направления</h2>
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}
@@ -9,13 +9,18 @@
 @endforeach
 
 <table border="1">
-
 	<tr>
 		<td>
 			№
 		</td>
 		<td>
 			Направление
+		</td>
+		<td>
+			-
+		</td>
+		<td>
+			-
 		</td>
 	</tr>
 	@foreach($fields as $field)
@@ -27,14 +32,17 @@
 			{{$field->name}}
 		</td>
 		<td>
-			<a href="{{route('fields.edit', $field->id)}}">Промени</a>
+			<a href="{{ route('fields.edit', $field->id )}}">Промени</a>
 		</td>
 		<td>
-			{!!Form::open(['route'=> ['fields.destroy', $field->id], 'method'=>'delete']) !!}
-				{!! Form::submit('Изтрий') !!}
-			{!! Form::close()!!}
+			<form action="{{ route('fields.destroy', $field->id )}}"  method="POST">
+				{{ csrf_field() }}
+				{{ method_field('DELETE') }}
+				<input type="submit" name="submit" value="Изтрий">
+			</form>
 		</td>
-@endforeach
+	</tr>
+	@endforeach	
 </table>
 
 <p>

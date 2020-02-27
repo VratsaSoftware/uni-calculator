@@ -24,7 +24,14 @@ class CreateUniversityRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:2',
+        ];
+    }
+
+    public function messages(){
+        return [
+            'name.required' => 'Името на университета е задължително! ',
+            'name.min' => 'Името да не е по-малко от 2 знака! ',
         ];
     }
 }

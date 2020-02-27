@@ -4,19 +4,17 @@
 	{{ Session::get('message') }}
 @endif
 
-	@foreach($errors->all() as $error)
-		{{ $error }}
-	@endforeach
-	
-{!! Form::model ( $city, ['route'=> ['cities.update', $city->id], 'files'=>'true']) !!}
-	{{ method_field('PATCH') }}
+@foreach($errors->all() as $error)
+	{{ $error }}
+@endforeach
+
+<form action="{{ route('cities.update', $city->id) }}" method="POST">
+	{{ csrf_field() }}
+	{{ method_field('PUT') }}
 	<p>Name:
-		{!! Form::text('name', $city->name) !!}
+		<input type="text" name="name" value="{{ $city->name }}">
 	</p>
-	
+	<input type="submit" name="submit" value="Промени">
+</form>
 
-	{!! Form::submit('Промени') !!}
-
-{!! Form::close() !!}
-
-<a href="{{ route('cities.index') }}">Back</a>
+<a href="{{ route('cities.index') }}">Назад</a>

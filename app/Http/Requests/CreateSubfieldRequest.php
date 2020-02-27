@@ -25,8 +25,7 @@ class CreateSubfieldRequest extends FormRequest
     {
         return [
             'name' => 'required|min:2',
-            
-                ];
+        ];
     }
 
     public function messages(){

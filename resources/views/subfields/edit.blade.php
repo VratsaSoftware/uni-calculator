@@ -4,26 +4,27 @@
 	{{ Session::get('message') }}
 @endif
 
-	@foreach($errors->all() as $error)
-		{{ $error }}
-	@endforeach
+@foreach($errors->all() as $error)
+	{{ $error }}
+@endforeach
 	
-{!! Form::model ( $subfield, ['route'=> ['subfields.update', $subfield->id], 'files'=>'true']) !!}
-	{{ method_field('PATCH') }}
+
+<form action="{{ route('subfields.update', $subfield->id) }}" method="POST">
+	{{ csrf_field() }}
+	{{ method_field('PUT') }}
 	<p>Име на поднаправлението:
-		{!! Form::text('name') !!}
+		<input type="text" name="name" value="{{$subfield->name}}">
 	</p>
 	<p>
 		Направление:
 		<select name="field_id" >
+			<option value="{{ $subfield->field->id }}" selected>{{ $subfield->field->name }}</option>
 			@foreach($fields as $field)
 			<option value="{{$field->id}}">{{$field->name}} </option>
 			@endforeach
 		</select>
 	</p>
+	<input type="submit" name="submit" value="Промени">
+</form>
 
-	{!! Form::submit('Update') !!}
-
-{!! Form::close() !!}
-
-<a href="{{ route('subfields.index') }}">Back</a>
+<a href="{{ route('subfields.index') }}">Назад</a>

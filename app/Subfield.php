@@ -9,9 +9,9 @@ class Subfield extends Model
     protected $fillable= [ 
 		'name',
 		'field_id'
-
     ];
-    public function fields(){
+    
+    public function field(){
         return $this->belongsTo('App\Field', 'field_id');
     }
 }
