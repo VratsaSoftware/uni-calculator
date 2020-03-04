@@ -123,7 +123,7 @@ class SearchController extends Controller
         $data[] = $program->name;
         $university = University::find($university_id);
         $data[] = $university->name;
-        $user_id = Auth::user()->id;
+
         $history = new SearchLog;
         $history->event_time = Carbon::now();
         $history->argument = $data;
