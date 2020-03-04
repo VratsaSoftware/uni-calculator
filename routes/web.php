@@ -15,12 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Auth::routes();
 Route::resource('cities', 'CitiesController');
 Route::resource('universities', 'UniversitiesController');
 Route::resource('fields', 'FieldsController');
 Route::resource('subfields', 'SubfieldsController');
 Route::resource('majors', 'MajorsController');
+Route::resource('roles', 'RolesController');
+Route::resource('users', 'UsersController');
+Route::resource('search', 'SearchController');
+
+
+
 
 
 
