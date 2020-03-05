@@ -11,6 +11,7 @@
         <li><a href="{{route('fields.index')}}">Направления</a></li>
         <li><a href="{{route('subfields.index')}}">Поднаправления</a></li>
         <li><a href="{{route('majors.index')}}">Специалности</a></li>
+        <li><a href="{{route('roles.index')}}">Роли</a></li>
     </ul>
 
 </body>
