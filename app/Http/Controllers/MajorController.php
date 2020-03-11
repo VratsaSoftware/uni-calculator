@@ -7,6 +7,7 @@ use App\Major;
 use App\Formula;
 use App\ExamType;
 use App\Subject;
+use App\University;
 use App\AdmissionOption;
 use Illuminate\Http\Request;
 
@@ -19,9 +20,13 @@ class MajorController extends Controller
      */
     public function index()
     {
-        $majors = DB::table('majors')->paginate(15);
+        $majors = Major::paginate(10);
+        
+        $majors_arr = Major::all();
 
         $formulas = Formula::all();
+
+        $universities = University::all();
 
         $admission_options = AdmissionOption::all();
 
@@ -29,7 +34,7 @@ class MajorController extends Controller
 
         $subjects = Subject::all();
 
-        return view('major.index', compact('majors','formulas','admission_options','exam_types','subjects'));
+        return view('major.index', compact('majors','formulas','admission_options','exam_types','subjects', 'universities'));
     }
 
     /**

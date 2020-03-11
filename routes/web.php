@@ -22,9 +22,11 @@ Route::resource('fields', 'FieldsController');
 Route::resource('subfields', 'SubfieldsController');
 Route::resource('subject', 'SubjectController');
 Route::resource('exam_type', 'ExamTypeController');
-Route::resource('formula', 'FormulaController')->except(['create']);
+Route::resource('formula', 'FormulaController')->except(['create', 'store']);
 Route::get('formula/{formula}/create', 'FormulaController@create')->name('formula.create');
+Route::post('formula/{formula}/create', 'FormulaController@store')->name('formula.store');
 Route::resource('major', 'MajorController');
+Route::post('/home/best', 'LogicController@best')->name('best');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

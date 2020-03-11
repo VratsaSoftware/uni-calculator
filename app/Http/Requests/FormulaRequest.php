@@ -13,7 +13,7 @@ class FormulaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class FormulaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+
+            'coefficient.*' => 'required|numeric',
+            'grade.*' => 'required|numeric',
+
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'coefficient.*.required' => 'Задължителен коефициент!!!',
+            'coefficient.*.numeric' => 'Коефициента трябва да е число !!!',
+            
+            'grade.*.required' => 'Задължителена максимална стойност!!!',
+            'grade.*.numeric' => 'Максималната стойност трябва да е число!!!',
         ];
     }
 }

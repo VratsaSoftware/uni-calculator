@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Manage | Exam type')
+@section('title', 'Manage | Formulas')
 
 @section('content')
 
-<h3>Нов вид</h3>
+<h3>Нова формула</h3>
 <div>
 
 @if(Session::has('message'))
@@ -17,7 +17,7 @@
 
 <div class="container">   
     <div class="form-group">  
-        <form id="formula" method="POST" action="{{ route("formula.store")}}" >
+        <form id="formula" method="POST" action="{{ route("formula.store", $major->id)}}" >
         {{ csrf_field() }} 
             <div class="table-responsive">  
                 <table class="table table-bordered" id="dynamic_field">  
@@ -26,7 +26,7 @@
 
                         	{{-- Dropdown menu for exam types  --}}
 
-                        	<select name="exam_type1">
+                        	<select name="exam_type[]">
 
                         		@foreach($exam_types as $exam_type)
 									<option value="{{ $exam_type->id }}">
@@ -38,7 +38,7 @@
 
                         	{{-- Dropdown menu for subjects  --}}
 
-                        	<select name="subject1">
+                        	<select name="subject[]">
 
                         		@foreach($subjects as $subject)
 									<option value="{{ $subject->id }}">
@@ -50,11 +50,11 @@
 							
 							{{-- Coefficient --}}
 
-                        	<input type="number" name="coefficient1" placeholder="Коефициент" class="form-control name_list" />
+                        	<input type="number" name="coefficient[]" placeholder="Коефициент" class="form-control name_list" />
 
                         	{{-- Grade --}}
 
-                        	<input type="number" name="grade1" placeholder="Максимална стойност" class="form-control name_list" />
+                        	<input type="number" name="grade[]" placeholder="Максимална стойност" class="form-control name_list" />
                         </td>
 
                         {{-- Add variables --}}
@@ -85,7 +85,7 @@
 
         	// Dropdown menu exam types
 
-        	$('#col'+i+'').hide().append('<select name="exam_type'+i+'" id="exam_type'+i+'"></select>').fadeIn(1000);
+        	$('#col'+i+'').hide().append('<select name="exam_type[]" id="exam_type'+i+'"></select>').fadeIn(1000);
 
         	$.each(exam_types ,function() {
            		$('#exam_type'+i+'').append('<option value="'+this.id+'">'+this.name+'</option>');
@@ -93,15 +93,15 @@
 
         	// Dropdown menu subjects
 
-        	$('#col'+i+'').append('<select name="subject'+i+'" id="subject'+i+'"></select>');
+        	$('#col'+i+'').append('<select name="subject[]" id="subject'+i+'"></select>');
 
         	$.each(subjects ,function() {
            		$('#subject'+i+'').append('<option value="'+this.id+'">'+this.name+'</option>');
         	});
 
-        	$('#col'+i+'').append('<input type="number" name="coefficient'+i+'" placeholder="Коефициент" class="form-control name_list" />');
+        	$('#col'+i+'').append('<input type="number" name="coefficient[]" placeholder="Коефициент" class="form-control name_list" />');
 
-        	$('#col'+i+'').append('<input type="number" name="grade'+i+'" placeholder="Максимална стойност" class="form-control name_list" />');
+        	$('#col'+i+'').append('<input type="number" name="grade[]" placeholder="Максимална стойност" class="form-control name_list" />');
 
     	});  
     	$(document).on('click', '.btn_remove', function(){  
@@ -112,18 +112,4 @@
     	
 	});  
 </script>
-
-
-	{{-- </div>
-	<div class="container">
-		<form method="POST" action="{{ route("exam_type.store")}}">
-		{{ csrf_field() }}
-			<strong>
-				Име:
-			</strong>
-			<input type="text" placeholder="Име на вида" name="name">
-			<input type="submit" name="submit" value="Създай">
-		</form>
-	</div> --}}
-	
 @endsection

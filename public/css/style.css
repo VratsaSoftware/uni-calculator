@@ -426,7 +426,10 @@
 			border-radius: 0;
 			padding: 0;
 		}
-
+	.form-crud {
+		background: #fff!important;
+		color: #000;
+	}
 /* Icon */
 
 	.icon {
@@ -1230,4 +1233,8 @@
 	border-radius: 4px;
 	display: inline-block;
 	padding: 50px;
+}
+
+.formula_row {
+	display: none;
 }

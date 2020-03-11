@@ -7,8 +7,9 @@ use App\Subject;
 use App\AdmissionOption;
 use App\ExamType;
 use App\Major;
+use App\Formula;
 use Illuminate\Http\Request;
-use App\Http\Requests\SubjectRequest;
+use App\Http\Requests\FormulaRequest;
 
 class FormulaController extends Controller
 {
@@ -42,16 +43,25 @@ class FormulaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormulaRequest $request, $id)
     {
-        dd($request);
-        Formula::create([
-            'exam_type_id'=> $request->exam_type ,
-            'subject_id' => $request->subject ,
-            'coefficient' => $request->coefficient ,
-            'grade' => $request->grade ,
-            'admission_option_id' => $request->admission_option ,
+
+        AdmissionOption::create([
+            'major_id' => $id,
         ]);
+        
+        $last_id = AdmissionOption::all()->last()->id;
+
+        foreach ($request->exam_type as $key => $value) {
+            $data = [
+                    'exam_type_id'=> $request->exam_type[$key] ,
+                    'subject_id' => $request->subject[$key] ,
+                    'coefficient' => $request->coefficient[$key] ,
+                    'grade' => $request->grade[$key] ,
+                    'admission_option_id' => $last_id ,
+            ];
+            Formula::insert($data);
+        }
 
         return redirect()->route('major.index')
             ->withMessage('Формулата е успешно създадена!');
@@ -76,7 +86,12 @@ class FormulaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $exam_types = ExamType::all();
+        $subjects = Subject::all();
+        $admission_option = AdmissionOption::find($id);
+        $formulas = DB::table('formulas')->where('admission_option_id', $id)->get();
+
+        return view('formula.edit', compact('admission_option', 'formulas', 'exam_types', 'subjects'));
     }
 
     /**
@@ -86,9 +101,22 @@ class FormulaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FormulaRequest $request, $id)
     {
-        //
+        $formulas = DB::table('formulas')->where('admission_option_id', $id)->get();
+
+        foreach ($request->exam_type as $key => $value) {
+            $data = array(
+                'exam_type_id'=> $request->exam_type[$key] ,
+                'subject_id' => $request->subject[$key] ,
+                'coefficient' => $request->coefficient[$key] ,
+                'grade' => $request->grade[$key] ,
+            );
+            Formula::where('id', $formulas[$key]->id)->update($data);
+        }
+
+        return redirect()->route('major.index')
+            ->withMessage('Формулата е успешно променена!');
     }
 
     /**
@@ -99,6 +127,10 @@ class FormulaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Formula::where('admission_option_id', $id)->delete();
+        AdmissionOption::where('id', $id)->delete();
+        
+        return redirect()->route('major.index')
+                ->withMessage('Формулата е изтрита успешно!');
     }
 }
