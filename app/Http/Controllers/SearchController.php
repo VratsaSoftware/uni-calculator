@@ -34,7 +34,7 @@ class SearchController extends Controller
         $programs = Program::all();
         $universities = University::all();
 
-        return view('search.create', compact('majors'), compact('subfields', 'programs', 'universities'));
+        return view('search.create', compact('subfields', 'programs', 'universities'));
     }
 
     /**
