@@ -14,8 +14,20 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    You are logged in!
+                    
                 </div>
+            </div>
+            <div>
+                <form method="POST" action="{{ route("best") }}">
+                {{ csrf_field() }}
+
+                    <select name="subject">
+                        @foreach($subjects as $subject)
+                            <option value="{{ $subject->id}}">{{ $subject->name}}</option>
+                        @endforeach
+                    </select>
+                    <input type="submit" name="submit" value="Продължи">
+                </form>
             </div>
         </div>
     </div>
