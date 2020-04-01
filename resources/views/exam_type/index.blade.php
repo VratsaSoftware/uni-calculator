@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Manage | exam_type types')
 
@@ -18,7 +18,7 @@
 		</h2>
 	</div>
 	<div class="container form-login">
-		<table>
+		<table class="table table-hover">
 			<tr>
 				<th>Име</th>
 				<th></th>

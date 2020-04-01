@@ -1,3 +1,10 @@
+@extends('layouts.admin')
+
+@section('title', 'Cities')
+
+@section('content')
+
+
 <h2>Градове</h2>
 
 @if(Session::has('message'))
@@ -8,7 +15,8 @@
 	{{ $error }}
 @endforeach
 
-<table border="1">
+<table class="table table-hover">
+	
 	<tr>
 		<td>
 			№
@@ -48,3 +56,5 @@
 <p>
 	<a href="{{route('cities.create')}}">Добави град</a>
 </p>
+
+@endsection

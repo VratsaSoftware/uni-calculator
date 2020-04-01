@@ -1,3 +1,8 @@
+@extends('layouts.admin')
+
+@section('title', 'Subfields')
+
+@section('content')
 <h2>Промени поднаправление</h2>
 
 @if(Session::has('message'))
@@ -28,3 +33,4 @@
 </form>
 
 <a href="{{ route('subfields.index') }}">Назад</a>
+@endsection

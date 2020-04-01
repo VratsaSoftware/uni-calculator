@@ -1,0 +1,39 @@
+body {
+    height: 100%
+}
+
+.wrapper {
+    display: flex;
+    height: 100vw;
+}
+
+.sidebar-items {
+    width: 90%;
+}
+
+#sidebar {
+    /*height: 100vw;*/
+    width: 15%;
+    background: #444;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+}
+
+#sidebar .sidebar-header, li{
+	margin-left: 10px;
+}
+
+#sidebar .sidebar-header h3 {
+	font-size: 2vw;
+}
+
+#sidebar a{
+	font-size: 1.2vw;
+	color: #444;
+}

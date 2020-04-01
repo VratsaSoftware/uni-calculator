@@ -1,3 +1,9 @@
+@extends('layouts.admin')
+
+@section('title', 'Fields')
+
+@section('content')
+
 <h2>Направления</h2>
 
 @if(Session::has('message'))
@@ -8,7 +14,7 @@
 	{{ $error }}
 @endforeach
 
-<table border="1">
+<table class="table table-hover">
 	<tr>
 		<td>
 			№
@@ -49,3 +55,4 @@
 	<a href="{{route('fields.create')}}">Добавете направление</a>
 </p>
 
+@endsection

@@ -1,3 +1,9 @@
+@extends('layouts.admin')
+
+@section('title', 'Majors')
+
+@section('content')
+
 <h2>Промяна специалност</h2>
 
 
@@ -57,3 +63,4 @@
 <p>
 	<a href="{{ route('majors.index') }}">Назад</a>
 </p>
+@endsection

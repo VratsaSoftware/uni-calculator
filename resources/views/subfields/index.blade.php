@@ -1,3 +1,8 @@
+@extends('layouts.admin')
+
+@section('title', 'Subfields')
+
+@section('content')
 <h2>Поднаправления</h2>
 
 @if(Session::has('message'))
@@ -8,7 +13,7 @@
 	{{ $error }}
 @endforeach
 
-<table border="1">
+<table class="table table-hover">
 	<tr>
 		<td>
 			<b>Поднаправление</b>
@@ -48,4 +53,4 @@
 <p>
 	<a href="{{route('subfields.create')}}">Добавете поднаправление</a>
 </p>
-
+@endsection

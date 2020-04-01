@@ -1,3 +1,9 @@
+@extends('layouts.admin')
+
+@section('title', 'Cities')
+
+@section('content')
+
 <h2>Добавяне на нов град в базата данни</h2>
 
 
@@ -20,3 +26,5 @@
 <p>
 	<a href="{{ route('cities.index') }}">Назад</a>
 </p>
+
+@endsection

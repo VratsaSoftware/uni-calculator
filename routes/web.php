@@ -33,7 +33,6 @@ Route::resource('exam_type', 'ExamTypeController');
 Route::resource('formula', 'FormulaController')->except(['create', 'store']);
 Route::get('formula/{formula}/create', 'FormulaController@create')->name('formula.create');
 Route::post('formula/{formula}/create', 'FormulaController@store')->name('formula.store');
-Route::resource('major', 'MajorController');
 Route::post('/home/best', 'LogicController@best')->name('best');
 
 

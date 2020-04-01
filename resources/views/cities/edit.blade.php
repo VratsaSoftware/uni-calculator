@@ -1,3 +1,9 @@
+@extends('layouts.admin')
+
+@section('title', 'Cities')
+
+@section('content')
+
 <h2>Промени град</h2>
 
 @if(Session::has('message'))
@@ -18,3 +24,5 @@
 </form>
 
 <a href="{{ route('cities.index') }}">Назад</a>
+
+@endsection

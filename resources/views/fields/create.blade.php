@@ -1,3 +1,9 @@
+@extends('layouts.admin')
+
+@section('title', 'Fields')
+
+@section('content')
+
 <h2>Добавяне на ново направление в базата данни</h2>
 
 @if(Session::has('message'))
@@ -19,3 +25,5 @@
 <p>
 	<a href="{{ route('fields.index') }}">Назад</a>
 </p>
+
+@endsection

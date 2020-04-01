@@ -1,3 +1,8 @@
+@extends('layouts.admin')
+
+@section('title', 'Universities')
+
+@section('content')
 <h2>Добавяне на нов университет в базата данни</h2>
 
 @if(Session::has('message'))
@@ -27,3 +32,4 @@
 <p>
 	<a href="{{ route('universities.index') }}">Назад</a>
 </p>
+@endsection

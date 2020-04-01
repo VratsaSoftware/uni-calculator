@@ -17,7 +17,7 @@
 
 <div class="container">   
     <div class="form-group">  
-        <form id="formula" method="POST" action="{{ route("formula.store", $major->id)}}" >
+        <form id="formula" method="POST" action="{{ route('formula.store', $major->id)}}" >
         {{ csrf_field() }} 
             <div class="table-responsive">  
                 <table class="table table-bordered" id="dynamic_field">  

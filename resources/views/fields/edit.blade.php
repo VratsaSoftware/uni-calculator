@@ -1,3 +1,10 @@
+@extends('layouts.admin')
+
+@section('title', 'Fields')
+
+@section('content')
+
+
 <h2>Промени направление</h2>
 
 @if(Session::has('message'))
@@ -18,3 +25,5 @@
 </form>
 
 <a href="{{ route('fields.index') }}">Назад</a>
+
+@endsection

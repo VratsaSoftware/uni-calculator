@@ -1,3 +1,8 @@
+@extends('layouts.admin')
+
+@section('title', 'Subfields')
+
+@section('content')
 <h2>Добавяне на новo поднаправление в базата данни</h2>
 
 
@@ -27,3 +32,4 @@
 <p>
 	<a href="{{ route('subfields.index') }}">Назад</a>
 </p>
+@endsection
