@@ -10,6 +10,10 @@ use App\Major;
 use App\Http\Controllers\DB;
 use App\SearchLog;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use App\AdmissionOption;
+use App\Formula;
+
 
 class SearchController extends Controller
 {
@@ -34,7 +38,7 @@ class SearchController extends Controller
         $programs = Program::all();
         $universities = University::all();
 
-        return view('search.create', compact('subfields', 'programs', 'universities'));
+        return view('search.create', compact('majors'), compact('subfields', 'programs', 'universities'));
     }
 
     /**
@@ -45,17 +49,14 @@ class SearchController extends Controller
      */
     public function store(Request $request)
     {
-        // $subfield = $request->subfield_id;
-        // $from = $request->form;
-        // $program = $request->program_id;
-        // $university = $request->university_id;
-        $this->logHistory($request->subfield_id,$request->program_id,$request->university_id);
+        $this->logHistory($request->subfield_id,$request->program_id,$request->university_id,$request->form);
    
-        $majors_specific = Major::with('subfield','program', 'university')->where([
+        $majors_specific = Major::with('subfield' ,'program', 'university')->where([
 
         ['subfield_id', $request->subfield_id],
         ['program_id', $request->program_id],
         ['university_id', $request->university_id],
+        ['form', $request->form],
    
        ])->get();
 
@@ -65,7 +66,6 @@ class SearchController extends Controller
 
 
         return view('search.store', compact('majors_program', 'majors_subfield', 'majors_university'), compact('majors_specific', 'program', 'university' )); 
-
     }
 
     /**
@@ -76,7 +76,8 @@ class SearchController extends Controller
      */
     public function show($id)
     {
-        //
+    
+      //
     }
 
     /**
@@ -113,7 +114,7 @@ class SearchController extends Controller
         //
     }
 
-    public function logHistory($subfield_id,$program_id,$university_id)
+    public function logHistory($subfield_id,$program_id,$university_id, $form)
     {
         $data = [];
 
@@ -123,10 +124,14 @@ class SearchController extends Controller
         $data[] = $program->name;
         $university = University::find($university_id);
         $data[] = $university->name;
-
+        $data[] = $form;
+        $user = Auth::user();
+        $id = Auth::id();
         $history = new SearchLog;
         $history->event_time = Carbon::now();
         $history->argument = $data;
+        $history->user_id = $id;
         $history->save();
     }
 }
+

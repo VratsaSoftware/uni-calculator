@@ -139,7 +139,7 @@
 		<div class="row">
 			{{ $majors->links() }}
 		</div>
-		<a class="btn btn-outline-primary" href="{{ route('major.create') }}">
+		<a class="btn btn-outline-primary" href="{{ route('majors.create') }}">
 			Нова специалност
 		</a>
 	</div>
