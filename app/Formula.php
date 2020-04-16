@@ -14,16 +14,16 @@ class Formula extends Model
     						'admission_option_id',
     ];
 
-    public function examTypes()
+    public function exams()
     {
-    	return $this->hasMany('App\ExamType');
+    	return $this->belongsTo('App\ExamType', 'exam_type_id');
     }
-    public function subjects()
+    public function subject()
     {
-    	return $this->hasMany('App\Subject');
+    	return $this->belongsTo('App\Subject');
     }
-    public function admissionOptions()
+    public function majors()
     {
-    	return $this->hasMany('App\AdmissionOption');
+    	return $this->belongsToMany('App\Major', 'admission_options', 'id', 'major_id');
     }
 }
