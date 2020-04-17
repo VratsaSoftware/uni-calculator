@@ -1,11 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Manage | Formulas')
 
-@section('content')
+@section('header', 'Нова формула')
 
-<h3>Нова формула</h3>
-<div>
+@section('content')
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}

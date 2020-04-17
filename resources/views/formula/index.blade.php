@@ -2,6 +2,8 @@
 
 @section('title', 'Manage | exam_type types')
 
+@section('header', 'Формули')
+
 @section('content')
 	<div>
 		@if(Session::has('message'))
@@ -11,11 +13,6 @@
 		@foreach($errors->all() as $error)
 			{{ $error }}
 		@endforeach
-	</div>
-	<div>
-		<h2>
-			Предмет
-		</h2>
 	</div>
 	<div class="container form-login">
 		<table>

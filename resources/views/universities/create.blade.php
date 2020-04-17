@@ -2,8 +2,9 @@
 
 @section('title', 'Universities')
 
+@section('header', 'Добавяне на нов университет в базата данни')
+
 @section('content')
-<h2>Добавяне на нов университет в базата данни</h2>
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}

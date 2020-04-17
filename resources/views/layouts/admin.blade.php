@@ -26,15 +26,13 @@
 
 </head>
 <body>
-
-	{{-- Header --}}
-
-
 	<div class="wrapper">
 		<nav id="sidebar">
 			<div class="sidebar-items">	
 		        <div class="sidebar-header">
-		            <h3>Управление</h3>
+		    	    <a href="{{ route('manage') }}">
+		            	<h3>Управление</h3>
+		            </a>
 		        </div>
 		        <div class="list-group">
 		    	    <a href="{{ route('cities.index') }}" class="list-group-item list-group-item-action">Градове</a>
@@ -49,9 +47,16 @@
 		    </div>
 	    </nav>
 
-    	<!-- Page Content  -->
-	    <div id="content">
-			@yield('content')
+	    <div id="main">
+	    	<!-- Page Header  -->
+			<div id="header">
+				<h2>@yield('header')</h2>
+			</div>
+
+	    	<!-- Page Content  -->
+		    <div id="content">
+				@yield('content')
+		    </div>
 	    </div>
 	</div>
 </body>

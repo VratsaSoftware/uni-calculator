@@ -2,9 +2,9 @@
 
 @section('title', 'Subfields')
 
-@section('content')
-<h2>Добавяне на новo поднаправление в базата данни</h2>
+@section('header', 'Добавяне на новo поднаправление в базата данни')
 
+@section('content')
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}

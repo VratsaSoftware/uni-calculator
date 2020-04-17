@@ -2,9 +2,9 @@
 
 @section('title', 'Cities')
 
-@section('content')
+@section('header', 'Промени град')
 
-<h2>Промени град</h2>
+@section('content')
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}

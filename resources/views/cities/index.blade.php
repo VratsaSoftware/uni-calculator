@@ -2,10 +2,9 @@
 
 @section('title', 'Cities')
 
+@section('header', 'Градове')
+
 @section('content')
-
-
-<h2>Градове</h2>
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}

@@ -2,9 +2,10 @@
 
 @section('title', 'Majors')
 
+@section('header', 'Промяна специалност')
+
 @section('content')
 
-<h2>Промяна специалност</h2>
 
 
 @if(Session::has('message'))

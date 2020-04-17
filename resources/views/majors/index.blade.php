@@ -2,9 +2,10 @@
 
 @section('title', 'Majors')
 
+@section('header', 'Специалности')
+
 @section('content')
 
-<h2>Специалности</h2>
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}

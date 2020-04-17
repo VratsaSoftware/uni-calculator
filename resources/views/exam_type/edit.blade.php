@@ -2,10 +2,11 @@
 
 @section('title', 'Manage | Exam type')
 
+@section('header', 'Промени вида')
+
 @section('content')
 
 	<a class="btn btn-outline-primary" href="{{ route('exam_type.index')}}"> <<< </a>
-	<h3>Промени вида</h3>
 	<div>
 		@if(Session::has('message'))
 			{{ Session::get('message') }}
@@ -16,7 +17,7 @@
 		@endforeach
 	</div>
 	<div class="container">
-		<form method="POST" action="{{ route("exam_type.update", $exam_type->id)}}">
+		<form method="POST" action="{{ route('exam_type.update', $exam_type->id)}}">
 		{{ csrf_field() }}
 		@method('PATCH')
 			<strong>

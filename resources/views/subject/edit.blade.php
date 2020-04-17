@@ -2,10 +2,11 @@
 
 @section('title', 'Manage | Subject')
 
+@section('header', 'Промени предмет')
+
 @section('content')
 
 	<a class="btn btn-outline-primary" href="{{ route('subject.index')}}"> <<< </a>
-	<h3>Промени предмет</h3>
 	<div>
 		@if(Session::has('message'))
 			{{ Session::get('message') }}
@@ -16,7 +17,7 @@
 		@endforeach
 	</div>
 	<div class="container">
-		<form method="POST" action="{{ route("subject.update", $subject->id)}}">
+		<form method="POST" action="{{ route('subject.update', $subject->id)}}">
 		{{ csrf_field() }}
 		@method('PATCH')
 			<strong>

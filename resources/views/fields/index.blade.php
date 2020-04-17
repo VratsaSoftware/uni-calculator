@@ -2,9 +2,9 @@
 
 @section('title', 'Fields')
 
-@section('content')
+@section('header', 'Направления')
 
-<h2>Направления</h2>
+@section('content')
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}

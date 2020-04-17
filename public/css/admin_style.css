@@ -19,7 +19,9 @@ body {
     display: flex;
     justify-content: center;
 }
-
+#main {
+    display: block;
+}
 #content {
     display: flex;
     justify-content: center;
@@ -31,6 +33,7 @@ body {
 
 #sidebar .sidebar-header h3 {
 	font-size: 2vw;
+    color: #fff;
 }
 
 #sidebar a{

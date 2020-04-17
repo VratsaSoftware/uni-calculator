@@ -2,8 +2,9 @@
 
 @section('title', 'Subfields')
 
+@section('header', 'Поднаправления')
+
 @section('content')
-<h2>Поднаправления</h2>
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}

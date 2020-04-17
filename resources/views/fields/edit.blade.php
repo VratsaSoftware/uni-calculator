@@ -2,10 +2,11 @@
 
 @section('title', 'Fields')
 
+@section('header', 'Промени направление')
+
 @section('content')
 
 
-<h2>Промени направление</h2>
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}

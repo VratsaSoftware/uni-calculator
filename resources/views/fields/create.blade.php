@@ -2,9 +2,10 @@
 
 @section('title', 'Fields')
 
+@section('header', 'Добавяне на ново направление в базата данни')
+
 @section('content')
 
-<h2>Добавяне на ново направление в базата данни</h2>
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}

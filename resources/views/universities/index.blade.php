@@ -2,10 +2,9 @@
 
 @section('title', 'Universities')
 
+@section('header', 'Университети')
+
 @section('content')
-<div>
-	<h2>Университети</h2>
-</div>
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}
