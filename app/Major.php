@@ -24,4 +24,8 @@ class Major extends Model
     public function university(){
         return $this->belongsTo('App\University', 'university_id');
     }
+    public function formulas()
+    {
+        return $this->belongsToMany('App\Formula', 'admission_options', 'major_id', 'id' );
+    }
 }

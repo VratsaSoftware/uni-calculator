@@ -24,7 +24,6 @@ class MajorsController extends Controller
         $majors = Major::with('subfield', 'program', 'university' )->get();
         
         return view('majors.index', compact('majors'));
-
     }
 
     /**
@@ -70,7 +69,7 @@ class MajorsController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

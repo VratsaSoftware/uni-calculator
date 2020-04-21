@@ -35,6 +35,8 @@ Route::get('formula/{formula}/create', 'FormulaController@create')->name('formul
 Route::post('formula/{formula}/create', 'FormulaController@store')->name('formula.store');
 Route::resource('major', 'MajorController');
 Route::post('/home/best', 'LogicController@best')->name('best');
+Route::resource('calculators', 'CalculatorsController');
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');
