@@ -47,7 +47,9 @@
 														#
 													</th>
 													<th>
-														{{ $major->name}}
+														<a href="{{ route("majors.index")}}">
+															{{ $major->name}}
+														</a>	
 													</th>
 						    					</tr>
 						    				@endif
