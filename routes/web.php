@@ -34,6 +34,8 @@ Route::resource('formula', 'FormulaController')->except(['create', 'store']);
 Route::get('formula/{formula}/create', 'FormulaController@create')->name('formula.create');
 Route::post('formula/{formula}/store', 'FormulaController@store')->name('formula.store');
 Route::post('/home/best', 'LogicController@best')->name('best');
+Route::resource('calculators', 'CalculatorsController');
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');

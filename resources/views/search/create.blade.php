@@ -41,7 +41,7 @@
 			@endforeach
 		</select>
 	</p>
-	<input type="submit" name="submit" value="Запиши">
+	<input type="submit" name="submit" value="Търсене">
 </form>	
 
 <p>
