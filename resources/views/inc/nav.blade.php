@@ -4,6 +4,9 @@
 	<nav id="nav">
 		<ul>
             <li>
+                <a href="{{ route('search.create') }}">Търсене</a>
+            </li>
+            <li>
                 <a href="{{ route('manage') }}">Управление</a>
             </li>
             <!-- Authentication Links -->

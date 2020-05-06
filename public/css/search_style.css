@@ -1,0 +1,185 @@
+/*search page*/
+
+#search {
+	text-align: left;
+}
+
+#search form{
+	position: relative;
+}
+
+#search label  {
+	font-size: 1.2em;
+}
+
+#search button {
+	background: #3CADD4;
+	text-align: center;
+}
+
+#search-results .container{
+	margin-top: 50px;
+	width: 60%;
+}
+
+div#form-border{
+	border: 3px solid #0C8DB9;
+	border-radius: 25px;
+	padding: 15px;
+	margin-bottom: 20px;
+}
+
+div#form-border:hover{
+	border: 3px solid #AAD5E4;
+}
+
+
+#search #submit {
+	margin-left: 50px;
+	position: absolute;
+}
+
+div#submit {
+	position: relative;
+	width: 80%;
+    margin-left: 0px;
+}
+
+/*end search page*/
+
+/*search results*/
+
+
+div#icon {
+    font-family: 'FontAwesome';
+	display: inline-block;
+	margin: auto;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+
+div.form-border{
+	border: 3px solid #0C8DB9;
+	border-radius: 25px;
+	padding: 20px;
+	margin-bottom: 20px;
+	position: relative;
+	width: 60%;
+}
+
+div.result {
+	border: 3px solid #0C8DB9;
+	border-radius: 25px;
+	margin-top: 20px;
+
+}
+
+div.result:hover {
+	border: 3px solid #AAD5E4;
+	/*background: #E89393;*/
+
+
+}
+
+#search-results .major{
+	text-align: left;
+}
+
+#search-results .major h3{
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+#search-results i {
+	line-height: 1.2em;
+}
+
+
+#search-results #icon a {
+	font-size: 60px;
+	padding: 12px;
+	display: inline-block;
+}
+
+#list i  {
+	color: #0C8DB9;
+}
+
+#all i{
+	color: #0C8DB9;
+}
+
+#subfield i{
+	color: #FBC24E;
+}
+
+#program i{
+	color: #F47342;
+}
+
+#university i{
+	color: #7F888C;
+}
+
+#ball .btn {
+	border-radius: 25px;
+	margin: 30px;
+	background-color: #58B26D;
+	border-color: #58B26D;
+}
+
+#ball .btn:hover {
+	background-color: #1F7433;
+	border-color: #1F7433;
+}
+
+/*--------------- option2 */
+/*#ball .btn {
+	border: 2px solid #0C8DB9;
+	border-radius: 25px;
+	color: #0C8DB9;
+}
+
+#ball .btn:hover {
+	color: #FFF;
+	background: #0C8DB9;
+}*/
+
+/*--------------------------*/
+
+
+
+/*end search results*/
+
+/*Calculator page*/
+
+div#major-info li {
+	list-style: none
+}
+
+table#admission-option{
+	padding:  40px;
+}
+
+td.bal{
+	border: 3px solid #F47342;
+	font: 20px Segoe UI, sans-serif;
+	/*font-weight: 900;*/
+	/*color: #F47342;*/
+
+}
+div#result-display{
+	background: #FFF;
+	border: 1px solid #AAD5E4;
+	border-radius: 5px;
+	position: relative;
+	width: 60%;
+	height: 40px;
+	padding-top: 3px;
+	padding-bottom: 2px;
+}
+
+/*End Calculator page*/
+
+

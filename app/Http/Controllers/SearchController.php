@@ -38,7 +38,7 @@ class SearchController extends Controller
         $programs = Program::all();
         $universities = University::all();
 
-        return view('search.create', compact('majors'), compact('subfields', 'programs', 'universities'));
+        return view('search.create', compact('subfields', 'programs', 'universities'));
     }
 
     /**
@@ -65,7 +65,7 @@ class SearchController extends Controller
         $majors_university = Major::where('university_id', $request->university_id)->get();
 
 
-        return view('search.store', compact('majors_program', 'majors_subfield', 'majors_university'), compact('majors_specific', 'program', 'university' )); 
+        return view('search.store', compact('majors_program', 'majors_subfield', 'majors_university', 'majors_specific') ); 
     }
 
     /**
