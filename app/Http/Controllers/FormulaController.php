@@ -20,7 +20,9 @@ class FormulaController extends Controller
      */
     public function index()
     {
-        
+        $formulas = Formula::all();
+        $exam_types = ExamType::all();
+        return view('formula.index', compact('formulas', 'exam_types'));
     }
 
     /**

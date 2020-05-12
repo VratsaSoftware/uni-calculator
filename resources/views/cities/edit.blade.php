@@ -1,4 +1,10 @@
-<h2>Промени град</h2>
+@extends('layouts.admin')
+
+@section('title', 'Cities')
+
+@section('header', 'Промени град')
+
+@section('content')
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}
@@ -18,3 +24,5 @@
 </form>
 
 <a href="{{ route('cities.index') }}">Назад</a>
+
+@endsection

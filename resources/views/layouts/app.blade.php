@@ -36,9 +36,11 @@
 	@include('inc.nav')
 	
 	{{-- Content --}}
+	
 	<section id="banner">
 	@yield('content')
 	</section>
+
 	{{-- Footer --}}
 
 	@include('inc.footer')

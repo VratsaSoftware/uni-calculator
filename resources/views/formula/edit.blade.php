@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Manage | Formulas')
+
+@section('header', 'Промени формулата')
 
 @section('content')
 
 	<a class="btn btn-outline-primary" href="{{ route('major.index')}}"> <<< </a>
-	<h3>Промени формулата</h3>
 	<div>
 		@if(Session::has('message'))
 			{{ Session::get('message') }}

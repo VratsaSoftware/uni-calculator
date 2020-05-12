@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Manage | Subject')
+
+@section('header', 'Предмет')
 
 @section('content')
 	<div>
@@ -12,13 +14,8 @@
 			{{ $error }}
 		@endforeach
 	</div>
-	<div>
-		<h2>
-			Предмет
-		</h2>
-	</div>
 	<div class="container form-login">
-		<table>
+		<table class="table table-hover">
 			<tr>
 				<th>Име</th>
 				<th></th>
