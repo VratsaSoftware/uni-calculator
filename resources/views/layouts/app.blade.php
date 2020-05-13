@@ -45,11 +45,11 @@
 	@include('inc.nav')
 	
 	{{-- Banner --}}
-
+<!-- 
 	<section id="banner">
 		@include('inc.banner')
 	</section>
-
+ -->
 	{{-- Content --}}
 
 
