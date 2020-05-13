@@ -17,10 +17,14 @@
 	text-align: center;
 }
 
+
 #search-results .container{
+	display: inline-block;
+
 	margin-top: 50px;
 	width: 60%;
 }
+
 
 div#form-border{
 	border: 3px solid #0C8DB9;
@@ -35,7 +39,7 @@ div#form-border:hover{
 
 
 #search #submit {
-	margin-left: 50px;
+	/*margin-left: 50px;*/
 	position: absolute;
 }
 
