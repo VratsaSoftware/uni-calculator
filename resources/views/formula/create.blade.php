@@ -1,11 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Manage | Formulas')
 
-@section('content')
+@section('header', 'Нова формула')
 
-<h3>Нова формула</h3>
-<div>
+@section('content')
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}
@@ -17,7 +16,7 @@
 
 <div class="container">   
     <div class="form-group">  
-        <form id="formula" method="POST" action="{{ route("formula.store", $major->id)}}" >
+        <form id="formula" method="POST" action="{{ route('formula.store', $major->id)}}" >
         {{ csrf_field() }} 
             <div class="table-responsive">  
                 <table class="table table-bordered" id="dynamic_field">  

@@ -1,4 +1,11 @@
-<h2>Специалности</h2>
+@extends('layouts.admin')
+
+@section('title', 'Majors')
+
+@section('header', 'Специалности')
+
+@section('content')
+
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}
@@ -8,10 +15,13 @@
 	{{ $error }}
 @endforeach
 
-<table border="1">
+<table class="table table-hover">
 	<tr>
 		<td>
 			Наимнование на специалността
+		</td>
+		<td>
+			Сайта на специалността
 		</td>
 		<td>
 			Поднаправление
@@ -39,6 +49,9 @@
 	<tr>
 		<td>
 			{{$major->name}}
+		</td>
+		<td>
+			<a href="{{$major->link}}">Към сайта на специалността</a>
 		</td>
 		<td>
 			{{$major->subfield->name}}
@@ -72,3 +85,4 @@
 <p>
 	<a href="{{route('majors.create')}}">Добави специалност</a>
 </p>
+@endsection

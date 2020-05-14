@@ -15,7 +15,6 @@ Route::get('/', 'SearchController@create')->name('home');
 Auth::routes();
 
 Route::resource('search', 'SearchController');
-
 Route::post('/home/best', 'LogicController@best')->name('best');
 Route::resource('calculators', 'CalculatorsController');
 Route::resource('major', 'MajorController');
@@ -37,4 +36,4 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 	Route::resource('formula', 'FormulaController')->except(['create', 'store']);
 	Route::get('formula/{formula}/create', 'FormulaController@create')->name('formula.create');
 	Route::post('formula/{formula}/create', 'FormulaController@store')->name('formula.store');
-// });
+});

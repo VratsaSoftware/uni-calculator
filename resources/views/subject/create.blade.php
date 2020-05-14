@@ -1,9 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Manage | Subject')
 
+@section('header', 'Нов предмет')
+
 @section('content')
-	<h3>Нов предмет</h3>
 	<div>
 		@if(Session::has('message'))
 			{{ Session::get('message') }}
@@ -14,7 +15,7 @@
 		@endforeach
 	</div>
 	<div class="container">
-		<form method="POST" action="{{ route("subject.store")}}">
+		<form method="POST" action="{{ route('subject.store')}}">
 		{{ csrf_field() }}
 			<strong>
 				Име:

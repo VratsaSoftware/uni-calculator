@@ -1,4 +1,10 @@
-<h2>Добавяне на нов университет в базата данни</h2>
+@extends('layouts.admin')
+
+@section('title', 'Universities')
+
+@section('header', 'Добавяне на нов университет в базата данни')
+
+@section('content')
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}
@@ -27,3 +33,4 @@
 <p>
 	<a href="{{ route('universities.index') }}">Назад</a>
 </p>
+@endsection

@@ -1,5 +1,10 @@
-<h2>Добавяне на нов град в базата данни</h2>
+@extends('layouts.admin')
 
+@section('title', 'Cities')
+
+@section('header', 'Добавяне на нов град в базата данни')
+
+@section('content')
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}
@@ -20,3 +25,5 @@
 <p>
 	<a href="{{ route('cities.index') }}">Назад</a>
 </p>
+
+@endsection

@@ -1,4 +1,11 @@
-<h2>Промяна специалност</h2>
+@extends('layouts.admin')
+
+@section('title', 'Majors')
+
+@section('header', 'Промяна специалност')
+
+@section('content')
+
 
 
 @if(Session::has('message'))
@@ -57,3 +64,4 @@
 <p>
 	<a href="{{ route('majors.index') }}">Назад</a>
 </p>
+@endsection

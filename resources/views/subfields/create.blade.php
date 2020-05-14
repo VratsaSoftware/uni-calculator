@@ -1,5 +1,10 @@
-<h2>Добавяне на новo поднаправление в базата данни</h2>
+@extends('layouts.admin')
 
+@section('title', 'Subfields')
+
+@section('header', 'Добавяне на новo поднаправление в базата данни')
+
+@section('content')
 
 @if(Session::has('message'))
 	{{ Session::get('message') }}
@@ -27,3 +32,4 @@
 <p>
 	<a href="{{ route('subfields.index') }}">Назад</a>
 </p>
+@endsection
