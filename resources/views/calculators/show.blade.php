@@ -5,6 +5,15 @@
 @section('header', 'Търсене')
 
 @section('content')
+
+@if(Session::has('message'))
+	{{ Session::get('message') }}
+@endif
+
+@foreach($errors->all() as $error)
+	{{ $error }}
+@endforeach
+
 <div id="major-calculate" class="container ">
 	<div id="major-info">
 		<h2>{{ $major->name }}</h2>
@@ -44,8 +53,11 @@
 										<div id ="bal-input" class="row">
 							      			{{-- Input --}}
 							      			<div  class="form-group">
-							      				<p>		
-								      				<input class="form-control" type="number" name="user_evals[{{ $admission_option->id }}][]" value="{{ old('name') }}">
+							      				<p>	
+							      					<input id="grade" class="form-control" type="number" min="0" max="18" step="0.5" name="user_evals[{{ $admission_option->id }}][]" value="{{ old('name') }} " required 
+							      							oninvalid="this.setCustomValidity('Това поле е задължително!')"
+     															oninput="this.setCustomValidity('')"/>	
+								      				{{-- <input class="form-control" type="number" name="user_evals[{{ $admission_option->id }}][]" value="{{ old('name') }}"> --}}
 								      			</p>
 								      		</div>
 								      		{{-- Coefficient --}}
@@ -63,7 +75,8 @@
 								@endif
 							@endforeach
 							<tr>	
-								<td colspan="2"><input type="submit" name="submit" value="Изчисли бал"> 
+								<td colspan="2">
+									<input type="submit" name="submit" value="Изчисли бал"> 
 								</td>						
 								<td class="bal">
 									<p>

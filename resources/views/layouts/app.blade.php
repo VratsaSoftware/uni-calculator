@@ -59,6 +59,7 @@
 	{{-- Footer --}}
 
 	@include('inc.footer')
+	<script src="{{ asset('js/jquery.js') }}"></script>
 	<script src="{{ asset('js/skel.min.js') }}"></script>
 	<script src="{{ asset('js/skel-layers.min.js') }}"></script>
 	<script src="{{ asset('js/init.js') }}"></script>

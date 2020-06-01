@@ -4,7 +4,7 @@
 	<nav id="nav">
 		<ul>
             <li>
-                <a href="{{ route('search.create') }}">Търсене</a>
+                <a href="{{ route('home') }}">Търсене</a>
             </li>
         </ul>
 	</nav>
