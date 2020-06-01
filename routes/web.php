@@ -10,7 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'SearchController@create')->name('home');
+Route::get('/', 'SearchController@displaySearch')->name('home');
+Route::post('/results/1', 'SearchController@FirstSearchRes')->name('results/1');
+Route::post('/results/2', 'SearchController@SecondSearchRes')->name('results/2');
+
+
 
 Auth::routes();
 

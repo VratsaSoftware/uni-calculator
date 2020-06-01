@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\AdmissionOption;
 use App\Formula;
 
+
 class CalculatorsController extends Controller
 {
     /**

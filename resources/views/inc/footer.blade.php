@@ -1,5 +1,5 @@
 <footer id="footer">
-	<div class="container">
+	{{-- <div class="container">
 		<section class="links">
 			<div class="row">
 				<section class="3u 6u(medium) 12u$(small)">
@@ -53,5 +53,5 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+	</div> --}}
 </footer>
