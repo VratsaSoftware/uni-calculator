@@ -14,7 +14,7 @@
 				@foreach($major_fields as $key => $value)
 					@if($field->id == $value)
 						<ul id="results" class="field_row_{{$field->id}} list-unstyled mb-md-2">
-							<li class="text-lg-left" > <button class="field_{{$field->id}} btn btn-success btn-block text-lg-left mb-md-2" > <span><i class=" icon_{{$field->id}} fas fa-book  mr-md-4"></i></span>{{$field->name}} </button>
+							<li class="text-left" > <button class="field_{{$field->id}} btn btn-success btn-block text-left mb-md-2" > <span><i class=" icon_{{$field->id}} fas fa-book mr-4"></i></span>{{$field->name}} </button>
 								<div class="card bg-light mb-2 ml-md-4">
 								@foreach($subfields as $subfield)
 		    						@foreach($major_subfields as $key_1 => $value_1)

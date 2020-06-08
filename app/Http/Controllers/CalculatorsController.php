@@ -91,7 +91,7 @@ class CalculatorsController extends Controller
         // Get all the rows that form a single formula
         $formulas = Formula::whereIn('admission_option_id', $admission_options_ids )->get();
 
-        return view('calculators.show',  compact('major', 'admission_options', 'formulas'));
+        return view('calculators.show',  compact('major', 'formulas'));
     }
 
     /**

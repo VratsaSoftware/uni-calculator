@@ -35,7 +35,9 @@ div#form-border:hover{
 	border: 3px solid #AAD5E4;
 }
 
-
+div.nowrap{
+	white-space: nowrap;
+}
 
 /*end search page*/
 
@@ -71,9 +73,6 @@ div.result {
 
 div.result:hover {
 	border: 3px solid #AAD5E4;
-	/*background: #E89393;*/
-
-
 }
 
 #search-results .major{
@@ -135,28 +134,35 @@ div#major-info li {
 	list-style: none
 }
 
-table#admission-option{
-	padding:  40px;
+#major-calculate div#form-border{
+	width: 60%; 
+	min-width: 320px;
+}
+
+div#form-border table{
+	table-layout: fixed;
+    width:100%;
+}
+
+div#bal-input input{
+	min-width: 70px;
 }
 
 td.bal{
 	border: 3px solid #F47342;
 	font: 20px Segoe UI, sans-serif;
-	/*font-weight: 900;*/
-	/*color: #F47342;*/
-
 }
+
 div#result-display{
 	background: #FFF;
 	border: 1px solid #AAD5E4;
 	border-radius: 5px;
 	position: relative;
-	width: 60%;
+	width: 50%;
+	min-width: 60px !important;
 	height: 40px;
 	padding-top: 3px;
 	padding-bottom: 2px;
 }
 
 /*End Calculator page*/
-
-
