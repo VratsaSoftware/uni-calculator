@@ -17,7 +17,6 @@
 <div id="major-calculate" class="container ">
 	<div id="major-info">
 		<h2>{{ $major->name }}</h2>
-
 		<ul>
 			<li><b> Поднаправление</b> {{$major->subfield->name}}</li>
 			<li><b> Форма на обучение:</b> {{$major->form}}</li>
@@ -28,17 +27,17 @@
 	</div>
 
 	@foreach($major->formulas as $key => $admission_option)
-		<div class=" calculate-bal d-flex justify-content-center">
+		<div class="calculate-bal d-flex justify-content-center pt-md-3">
 			<div id= "form-border">	
-				<table id="admission-option" class="table-bordered">		
+				<table class="table-bordered p-3">		
 					<thead>
 						{{-- <tr>
 							<td><b> Вариант за приемане {{ $admission_option->id }} </b></td>
 						</tr> --}}
 						<tr>
-							<th scope="col" class="text-center"><i>Предмет</i></th>
-							<th scope="col" class="text-center"><i>Вид изпит</i></th>
-							<th scope="col" class="text-center"><i>Добави оценка:</i></th>
+							<th scope="col" class="text-center font-italic">Предмет</th>
+							<th scope="col" class="text-center font-italic">Вид изпит</th>
+							<th scope="col" class="text-center font-italic">Добави оценка:</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -50,49 +49,45 @@
 									<td >{{ $formula->subject->name }}</td>
 									<td>{{ $formula->exams->name }}</td>
 									<td>
-										<div id ="bal-input" class="row">
+										<div id ="bal-input" class="row d-flex align-items-center">
 							      			{{-- Input --}}
-							      			<div  class="form-group">
+							      			<div  class="col">
 							      				<p>	
 							      					<input id="grade" class="form-control" type="number" min="0" max="18" step="0.5" name="user_evals[{{ $admission_option->id }}][]" value="{{ old('name') }} " required 
-							      							oninvalid="this.setCustomValidity('Това поле е задължително!')"
-     															oninput="this.setCustomValidity('')"/>	
-								      				{{-- <input class="form-control" type="number" name="user_evals[{{ $admission_option->id }}][]" value="{{ old('name') }}"> --}}
+							      					oninvalid="this.setCustomValidity('Това поле е задължително! Моля, въведете оценка с точност до един знак след десетичната запатая!')"
+     												oninput="this.setCustomValidity('')" style="" />	
 								      			</p>
 								      		</div>
 								      		{{-- Coefficient --}}
-								      		<div>
+								      		<div class="col">
 								      			<p>	
 								      		 		x {{ $formula->coefficient }}
 								      			</p>		
 								      		</div>		
 									      	{{-- Hidden --}}
-									      	<textarea name="coefficient[{{ $admission_option->id }}][]" style="display:none;">{{ $formula->coefficient }}</textarea>
-											<textarea name="major_id" style="display:none;">{{ $major->id }}</textarea>
+									      	<textarea name="coefficient[{{ $admission_option->id }}][]" class="d-none">{{ $formula->coefficient }}</textarea>
+											<textarea name="major_id" class="d-none">{{ $major->id }}</textarea>
 										</div>
 									</td>
 								</tr>
 								@endif
 							@endforeach
-							<tr>	
-								<td colspan="2">
-									<input type="submit" name="submit" value="Изчисли бал"> 
-								</td>						
+							<tr>
+								<td colspan="2" class="text-center align-middle">
+									<input class="align-self-center" type="submit" name="submit" value="Изчисли бал"> 
+								 </td>					
 								<td class="bal">
-									<p>
-										<div id="result-display">
-
-											@if (\Session::has('bal'))
-												@foreach(  Session::get('bal') as $var => $value )
-													@if($var == $admission_option->id)
-														@if( $value != 0)
-															{{ $value }}
-														@endif			
-													@endif		
-												@endforeach
-										    @endif
-							       		</div>
-							       	</p>
+									<div id="result-display">
+										@if (\Session::has('bal'))
+											@foreach(  Session::get('bal') as $var => $value )
+												@if($var == $admission_option->id)
+													@if( $value != 0)
+														{{ $value }}
+													@endif			
+												@endif		
+											@endforeach
+										@endif
+							       	</div>
 								</td>
 							</tr>
 						</form>		

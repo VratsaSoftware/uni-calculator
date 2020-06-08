@@ -26,7 +26,6 @@ class SearchController extends Controller
         $subfields = Subfield::all();
         $programs = Program::all();
         $subjects = Subject::all();
-
         $majors = Major::all();
         $uni_id  = [];
         $list = [];
@@ -59,16 +58,15 @@ class SearchController extends Controller
             $subfields_list = array_unique($subf_list);
         }
 
-        // dd($subfields_list);
-
         return view('search.display', compact('fields', 'subfields_list' , 'programs', 'subjects', 'university_list'));
     }
 
     
     public function FirstSearchRes(Request $request)
     {
-        $selectsubject = $request->subject;
+        // Check for input data
 
+        $selectsubject = $request->subject;
 
         if ($selectsubject === null) {
 
@@ -80,6 +78,8 @@ class SearchController extends Controller
         }
         else
         {
+            $this->logHistoryFirst($request->subject);
+
             $fields = Field::all();
             $subfields = Subfield::all();
 
@@ -179,6 +179,7 @@ class SearchController extends Controller
 
     public function SecondSearchRes(Request $request)
     {
+        // Check for input data
         $selectsubfield = $request->subfield_id;
         $selectuniversity = $request->university_id;
 
@@ -188,23 +189,15 @@ class SearchController extends Controller
             $errmsg = [
                 'subfieldmsg' => '* Моля изберете поднаправление!',
                 'universitymsg' => '* Моля изберете университет!',
-
             ];
 
             
             return redirect()->back()->with('errmsg', $errmsg);
-
         }
+        // Find the major corresponding to all search criteria
         elseif (($selectsubfield !== null && $selectuniversity !== null)) {
-            // dd('both are filled');
-            // var_dump($request->subfield_id);
-            // echo "<br>";
-            // var_dump($request->university_id);
-
-
-            // Both criteria are filled -> execute search for specific majors
             
-            $this->logHistory($request->subfield_id,$request->program_id,$request->university_id,$request->form);
+            $this->logHistorySecond($request->subfield_id,$request->program_id,$request->university_id,$request->form);
 
             $majors_specific = Major::with('subfield' ,'program', 'university')->where([
 
@@ -216,75 +209,78 @@ class SearchController extends Controller
            ])->get();  
 
            return view('search.second', compact('majors_specific') ); 
-
-            // dd($majors_specific);
-
         }elseif (($selectsubfield !== null || $selectuniversity !== null)) {
 
-
+            // In case there is no university chosen, execute search for majors in all universities
             if ($selectsubfield !== null) {
 
-                 // $this->logHistory($request->subfield_id,$request->program_id, 0 ,$request->form);
-               // dd('Subfield selected '. $selectsubfield);
+                $university_id = null;
+
+                $this->logHistorySecond($request->subfield_id,$request->program_id,$university_id,$request->form);
                 $majors_subfield = Major::with('subfield' ,'program', 'university')->where([
                     ['subfield_id', $request->subfield_id],
                     ['program_id', $request->program_id],
                     ['form', $request->form],
                ])->get();
-                // dd($majors_subfield);  
+
                 return view('search.second', compact('majors_subfield') );
+            }
+            // In case there is no subfield chosen, execute search for majors in all subfields
+            elseif ($selectuniversity !== null) {
+                 
+                $subfield_id = null;
 
-            }elseif ($selectuniversity !== null) {
-                // dd('University selected '. $selectuniversity);
-
-                //dd($request->university_id);
+                $this->logHistorySecond($subfield_id,$request->program_id,$request->university_id,$request->form);
                 $majors_university = Major::with('subfield' ,'program', 'university')->where([
                     ['university_id', $request->university_id],
                     ['program_id', $request->program_id],
                     ['form', $request->form],
                ])->get();
-               // dd($majors_university); 
 
                 return view('search.second', compact('majors_university') );
-
             }
         }
-
-
-        // {
-        //     $this->logHistory($request->subfield_id,$request->program_id,$request->university_id,$request->form);
-       
-        //     $majors_specific = Major::with('subfield' ,'program', 'university')->where([
-
-        //     ['subfield_id', $request->subfield_id],
-        //     ['program_id', $request->program_id],
-        //     ['university_id', $request->university_id],
-        //     ['form', $request->form],
-       
-        //    ])->get();
-
-        //     $majors_subfield = Major::where('subfield_id', $request->subfield_id)->get();
-        //     $majors_program = Major::where('program_id', $request->program_id)->get();
-        //     $majors_university = Major::where('university_id', $request->university_id)->get();
-
-
-        // return view('search.second', compact('majors_subfield',  'majors_specific', 'majors_university') );
-       // };       
     }
 
-    
-
-    public function logHistory($subfield_id,$program_id,$university_id, $form)
+     public function logHistoryFirst($subject_id)
     {
         $data = [];
 
-        $subfield = Subfield::find($subfield_id);
-        $data[] = $subfield->name;
+        $subject = Subject::find($subject_id);
+        $data = $subject->name;
+        $user = Auth::user();
+        $id = Auth::id();
+        $history = new SearchLog;
+        $history->event_time = Carbon::now();
+        $history->argument = $data;
+        $history->user_id = $id;
+        $history->save();
+
+    }    
+
+    public function logHistorySecond($subfield_id,$program_id,$university_id, $form)
+    {
+        $data = [];
+        // Check subfield_id and get data
+        if ($subfield_id !== null) {
+            $subfield = Subfield::find($subfield_id);
+            $data[] = $subfield->name;
+        }else {
+            $data[] = 'Всички поднаправления';
+        }
+        //Get program
         $program = Program::find($program_id);
         $data[] = $program->name;
-        $university = University::find($university_id);
-        $data[] = $university->name;
+        // Check university_id and get data
+        if ($university_id !== null) {
+            $university = University::find($university_id);
+            $data[] = $university->name;
+        } else {
+            $data[] = 'Всички университети';
+        }
+        //Get form
         $data[] = $form;
+        //Log history 
         $user = Auth::user();
         $id = Auth::id();
         $history = new SearchLog;
