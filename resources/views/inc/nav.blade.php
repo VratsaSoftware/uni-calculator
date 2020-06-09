@@ -1,10 +1,13 @@
 <!-- Header -->
 <header id="header">
-	<h1><a href="{{ route('home') }}">{{ config('app.name') }}</a></h1>
+	<a href="{{ route('home') }}">
+		<img src="images/uni_calc_logo_tilted_hat.png" alt="logo">
+		<h3>{{ config('app.name') }}</h3>
+	</a>
 	<nav id="nav">
 		<ul>
             <li>
-                <a href="{{ route('home') }}">Търсене</a>
+            	<!-- No items for here now -->
             </li>
         </ul>
 	</nav>

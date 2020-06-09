@@ -7,18 +7,18 @@
         {{ $error }}
     @endforeach
     <div>
-        {{ __('Register') }}
+        {{ __('Регистрация') }}
     </div>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
         <div>
-            <label for="name">{{ __('Name') }}</label>
+            <label for="username">{{ __('Потребителско име') }}</label>
 
             <div>
-                <input id="name" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                <input id="username" type="text" class="@error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
-                @error('name')
+                @error('username')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -27,7 +27,7 @@
         </div>
 
         <div>
-            <label for="email">{{ __('E-Mail Address') }}</label>
+            <label for="email">{{ __('Имейл адрес') }}</label>
 
             <div>
                 <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -41,7 +41,7 @@
         </div>
 
         <div>
-            <label for="password">{{ __('Password') }}</label>
+            <label for="password">{{ __('Парола') }}</label>
 
             <div>
                 <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -55,17 +55,42 @@
         </div>
 
         <div>
-            <label for="password-confirm">{{ __('Confirm Password') }}</label>
+            <label for="password-confirm">{{ __('Потвърди парола') }}</label>
 
             <div>
                 <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
             </div>
         </div>
+        <div>
+            <label for="name">{{ __('Име') }}</label>
 
+            <div>
+                <input id="name" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div>
+            <label for="last_name">{{ __('Фамилия') }}</label>
+
+            <div>
+                <input id="last_name" type="text" class="@error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+
+                @error('last_name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
         <div>
             <div>
-                <button type="submit" class="btn btn-primary">
-                    {{ __('Register') }}
+                <button type="submit" class="btn btn-info">
+                    {{ __('Регистрирай се!') }}
                 </button>
             </div>
         </div>
