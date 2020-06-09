@@ -41,7 +41,7 @@
 	}
 
 		a:active, a:hover {
-			text-decoration: underline;
+			text-decoration: none;
 		}
 
 	strong, b {
@@ -216,7 +216,6 @@
 		display: block;
 		font-size: 0.9em;
 		font-weight: 700;
-		margin: 0 0 1em 0;
 	}
 
 	input[type="text"],
@@ -295,6 +294,7 @@
 	input[type="email"],
 	select {
 		height: 2.75em;
+		margin-bottom: 1em;
 	}
 
 	textarea {
@@ -947,7 +947,7 @@
 		}
 
 	#header {
-		background-color: #0C8DB9;
+		background-color: #3CADD4;
 		color: #ffffff;
 		cursor: default;
 		font-size: 1.1em;
@@ -957,19 +957,30 @@
 		z-index: 10000;
 	}
 
-		#header h1 {
+		#header h3 {
 			color: #ffffff;
 			height: inherit;
-			left: 3em;
-			line-height: inherit;
-			margin: 0;
 			padding: 0;
 			position: absolute;
 		}
 
-			#header h1 a {
-				font-size: 1.25em;
-			}
+		#header a {
+			vertical-align:middle;
+		}
+
+		#header a h3 {
+			left: 43%;
+
+			padding-top: 10px;
+			font-size: 3.25em;
+		}
+
+		#header a img {
+			float: left;
+			height: 5em;
+			margin: 9px 200px; 
+			vertical-align: middle;
+		}
 
 		#header nav {
 			height: inherit;
@@ -1040,7 +1051,7 @@
 		text-align: center;
 	}
 	#banner {
-		background-image: url(../images/dark_tint.png), url(../images/creative-white.jpg);
+		background-image: url(../images/creative-white.jpg);
 		background-position: center center;
 		background-size: cover;
 		color: #ffffff;
