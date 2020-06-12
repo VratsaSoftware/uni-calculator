@@ -41,8 +41,8 @@
 <body>
 
 	{{-- Header --}}
-
-	@include('inc.nav')
+	
+		@include('inc.nav')
 	
 	{{-- Banner --}}
 	
