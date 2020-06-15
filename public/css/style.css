@@ -970,7 +970,7 @@
 
 		#header a h3 {
 			left: 43%;
-
+			font-weight: 700;
 			padding-top: 10px;
 			font-size: 3.25em;
 		}
@@ -1045,6 +1045,13 @@
 			#header .container nav {
 				right: 0;
 			}
+
+		#header #username h4{
+			float: right;
+			margin-right: 5em;
+			margin-top: 3em;
+			color: #fff;
+		}
 
 /* Banner */
 	.center {

@@ -41,14 +41,6 @@
             </div>
         </div>
         <div>
-            <div class="col-sm-12 rem_password">
-                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                <label for="remember">
-                    {{ __('Remember Me') }}
-                </label>
-            </div>
-        </div>
-        <div>
             <div class="col-sm-12">
                 <button type="submit" class="btn btn-outline-primary">
                     {{ __('Login') }}

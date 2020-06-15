@@ -24,7 +24,7 @@ Route::resource('calculators', 'CalculatorsController');
 Route::resource('major', 'MajorController');
 Route::resource('formula', 'FormulaController');
 
-Route::group(['middleware' => ['auth', 'admin']], function(){
+Route::group(['middleware' => ['auth', 'adminauth']], function(){
 	Route::get('/manage', 'ManageController@index')->name('manage');
 	Route::resources([
 		'cities' => 'CitiesController',
