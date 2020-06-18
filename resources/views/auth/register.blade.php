@@ -7,7 +7,7 @@
         {{ $error }}
     @endforeach
     <div>
-        {{ __('Регистрация') }}
+        <h3>{{ __('Регистрация') }}</h3>
     </div>
     <form method="POST" action="{{ route('register') }}">
         @csrf
@@ -87,12 +87,10 @@
                 @enderror
             </div>
         </div>
-        <div>
-            <div>
-                <button type="submit" class="btn btn-info">
-                    {{ __('Регистрирай се!') }}
-                </button>
-            </div>
+        <div class="auth-btn">
+            <button type="submit" class="btn btn-info">
+                {{ __('Регистрирай се!') }}
+            </button>
         </div>
     </form>
 </div>
