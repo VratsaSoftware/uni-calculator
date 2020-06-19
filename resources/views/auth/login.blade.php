@@ -11,12 +11,12 @@
         </div>
     @endif
     <div>
-        {{ __('Login') }}
+        <h3>{{ __('Вход') }}</h3>
     </div>
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div>
-            <label for="email">{{ __('E-Mail Address') }}</label>
+            <label for="email">{{ __('Имейл адрес') }}</label>
             <div>
                 <input id="email" type="email" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div >
-            <label for="password" >{{ __('Password') }}</label>
+            <label for="password" >{{ __('Парола') }}</label>
 
             <div>
                 <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -40,15 +40,15 @@
                 @enderror
             </div>
         </div>
-        <div>
+        <div class="auth-btn">
             <div class="col-sm-12">
                 <button type="submit" class="btn btn-outline-primary">
-                    {{ __('Login') }}
+                    {{ __('Влез') }}
                 </button>
 
                 @if (Route::has('password.request'))
                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                        {{ __('Forgot Your Password?') }}
+                        {{ __('Забравена парола?') }}
                     </a>
                 @endif
             </div>

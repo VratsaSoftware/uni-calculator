@@ -7,7 +7,7 @@
         {{ $error }}
     @endforeach
     <div>
-        {{ __('Регистрация') }}
+        <h3>{{ __('Регистрация') }}</h3>
     </div>
     <form method="POST" action="{{ route('register') }}">
         @csrf
@@ -65,7 +65,7 @@
             <label for="first_name">{{ __('Име') }}</label>
 
             <div>
-                <input id="first_name" type="text" class="@error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
+                <input id="first_name" type="text" class="@error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name">
 
                 @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -78,7 +78,7 @@
             <label for="last_name">{{ __('Фамилия') }}</label>
 
             <div>
-                <input id="last_name" type="text" class="@error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+                <input id="last_name" type="text" class="@error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name">
 
                 @error('last_name')
                     <span class="invalid-feedback" role="alert">
@@ -87,12 +87,10 @@
                 @enderror
             </div>
         </div>
-        <div>
-            <div>
-                <button type="submit" class="btn btn-info">
-                    {{ __('Регистрирай се!') }}
-                </button>
-            </div>
+        <div class="auth-btn">
+            <button type="submit" class="btn btn-primary">
+                {{ __('Регистрирай се!') }}
+            </button>
         </div>
     </form>
 </div>

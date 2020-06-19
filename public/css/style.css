@@ -951,37 +951,12 @@
 		color: #ffffff;
 		cursor: default;
 		font-size: 1.1em;
-		height: 6em;
+		height: 7em;
 		line-height: 6em;
 		width: 100%;
 		z-index: 10000;
 	}
-
-		#header h3 {
-			color: #ffffff;
-			height: inherit;
-			padding: 0;
-			position: absolute;
-		}
-
-		#header a {
-			vertical-align:middle;
-		}
-
-		#header a h3 {
-			left: 43%;
-			font-weight: 700;
-			padding-top: 10px;
-			font-size: 3.25em;
-		}
-
-		#header a img {
-			float: left;
-			height: 5em;
-			margin: 9px 200px; 
-			vertical-align: middle;
-		}
-
+		
 		#header nav {
 			height: inherit;
 			line-height: inherit;
@@ -1046,12 +1021,7 @@
 				right: 0;
 			}
 
-		#header #username h4{
-			float: right;
-			margin-right: 5em;
-			margin-top: 3em;
-			color: #fff;
-		}
+	
 
 /* Banner */
 	.center {
@@ -1246,13 +1216,103 @@
 		}
 
 
-.form-login {
-	background: rgba(144, 144, 144, 0.075);
-	border-radius: 4px;
-	display: inline-block;
-	padding: 50px;
-}
+
 
 .formula_row {
 	display: none;
+}
+
+
+/*-------Custom Navigation------*/
+
+.custom-nav {
+	width: 100%;
+	padding: 0px 100px;
+	height: inherit;
+	display: flex;
+	align-items: center;
+}
+
+.custom-nav .col-lg-4 {
+	height: inherit;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+}
+
+	.custom-nav div a h3 {
+		color: #ffffff;
+		height: inherit;
+		font-weight: 700;
+		font-size: 3.25em;
+		display: flex;
+		align-items: center;
+		margin-bottom: 0;
+	}
+
+	.custom-nav div a img {
+		height: 5em;
+	}
+
+	.custom-nav .auth {
+		display: flex;
+		justify-content: right;
+	}
+		.custom-nav .auth h4{
+			color: #fff;
+			margin-bottom: 0;
+		}
+		
+		.custom-nav .auth a {
+			margin-left: 10px;
+		}
+
+/*-------Login and Register forms--------*/
+
+.form-login {
+	background: transparent;
+	border-radius: 4px;
+	border: 1px solid #3CADD4;
+	display: inline-block;
+	padding: 30px 50px;
+	width: 350px;
+}
+
+.form-login input[type="text"]:focus,
+.form-login	input[type="password"]:focus,
+.form-login	input[type="email"]:focus
+{
+	box-shadow: 0 0 0 1px #3CADD4;
+	border-color: #3CADD4;
+}
+
+.auth-btn {
+	margin-top: 30px;
+}
+
+.auth-btn .btn-outline-primary {
+	color: #3CADD4;
+	background-color: transparent;
+	border-color: #3CADD4;	
+}
+.auth-btn .btn-outline-primary:hover {
+	color: #fff;
+	border-color: #3CADD4;
+	background-color: #3CADD4;
+}
+
+.auth-btn .btn-link {
+	color: #3CADD4;
+}
+
+.auth-btn .btn-primary {
+	color: #fff;
+	border-color: #3CADD4;
+	background-color: #3CADD4;
+}
+.auth-btn .btn-primary:hover {
+	color: #3CADD4;
+	background-color: transparent;
+	border-color: #3CADD4;	
 }

@@ -1,32 +1,33 @@
 <!-- Header -->
 <header id="header">
-	<a href="{{ route('home') }}">
-		<img src="{{ URL::asset("images/uni_calc_logo_tilted_hat.png") }}" alt="logo">
-		<h3>{{ config('app.name') }}</h3>
-	</a>
-	<nav id="nav">
-		<ul>
+	<div class="custom-nav">
+		
+		<div class="col-lg-4">
+			<a href="{{ route('home') }}">
+				<img src="{{ URL::asset("images/uni_calc_logo_tilted_hat.png") }}" alt="logo">
+			</a>
+		</div>
+		<div class="col-lg-4">
+			<a href="{{ route('home') }}">
+				<h3>{{ config('app.name') }}</h3>
+			</a>
+		</div>
+		<div class="col-lg-4 auth">
 			@guest
-            <li>
-				<a href="{{ route('login') }}">Login</a>
-            </li>
+				<a href="{{ route('login') }}">Вход</a>
 			@endguest
 			@auth
-            <li>
-			    <div id="username">
-			    	<h4>{{ Auth::user()->first_name }}</h4>
-				    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-				    								document.getElementById('logout-form').submit();">
-				        {{ __('Logout') }}
-				    </a>
-				    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-				        @csrf
-				    </form>
-			    </div>
-            </li>
+			<!-- <div class="auth-nav"> -->
+		    	<h4>{{ Auth::user()->first_name }}</h4>
+			    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+			    								document.getElementById('logout-form').submit();">
+			        {{ __('Изход') }}
+			    </a>
+			    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+			        @csrf
+			    </form>
+			<!-- </div> -->
             @endauth
-        </ul>
-	</nav>
-	@auth
-    @endauth
+		</div>
+	</div>
 </header>
