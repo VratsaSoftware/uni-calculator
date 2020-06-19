@@ -62,10 +62,10 @@
             </div>
         </div>
         <div>
-            <label for="name">{{ __('Име') }}</label>
+            <label for="first_name">{{ __('Име') }}</label>
 
             <div>
-                <input id="name" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                <input id="first_name" type="text" class="@error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
 
                 @error('name')
                     <span class="invalid-feedback" role="alert">
