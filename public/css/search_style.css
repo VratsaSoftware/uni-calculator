@@ -1,3 +1,28 @@
+/*banner*/
+div#slider img{
+	max-height: 550px;
+}
+
+div.carousel-caption.first, div.carousel-caption.second h2{
+	text-shadow: 2px 2px 5px rgb(47,47,59);
+}
+
+div.carousel-caption.third {
+	text-shadow: 2px 2px 5px rgb(204,201,194);
+}
+/*end banner*/
+
+/*footer*/
+#footer section#links{
+	width: 100%; 
+	border-bottom: solid 0.5px #CAC9C9
+}
+
+#footer section#contacts{
+	width: 100%;
+}
+/*end footer*/
+
 /*search page*/
 
 #search, #first-result{

@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.app') 
 
 @section('title', 'Резултати от търсене')
+
+{{-- @section('header', 'Търсене') --}}
 
 @section('content')
 

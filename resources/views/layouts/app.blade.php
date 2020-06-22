@@ -46,10 +46,12 @@
 	
 	{{-- Banner --}}
 	
-	<section id="banner">
+	<section id="banner" class="pt-0 pb-0">
 		@include('inc.banner')
 	</section>
 	
+
+
 	{{-- Content --}}
 	
 	<section id="one" class="wrapper style1 special">
